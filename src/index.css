@@ -298,3 +298,25 @@ footer::before {
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(0,212,255,.2), rgba(139,92,246,.2), transparent);
 }
+
+/* Mobile Enhancement Utilities */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Smooth mobile touch scrolling */
+.touch-scroll {
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 640px) {
+  /* Safe area padding for modern phones */
+  .pb-safe {
+    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+

@@ -10,6 +10,7 @@ import { Services } from './components/Services';
 import { Achievements } from './components/Achievements';
 import { ContactExport } from './components/ContactExport';
 import { Footer } from './components/Footer';
+import { MobileQuickBar } from './components/MobileQuickBar';
 import { Project } from './types';
 import { playClick } from './utils/audioFx';
 
@@ -63,7 +64,7 @@ export const App: React.FC = () => {
       <Navbar onOpenExportModal={handleOpenExportModal} />
 
       {/* Main Portfolio Sections */}
-      <main className="relative z-10">
+      <main className="relative z-10 pb-20 lg:pb-0">
         {/* 1. Hero Section (Split-Screen NLE Interface) */}
         <Hero 
           onExploreWork={handleExploreWork} 
@@ -94,6 +95,12 @@ export const App: React.FC = () => {
 
       {/* Application Footer & Status Dock */}
       <Footer />
+
+      {/* Mobile Floating Quick Action Dock */}
+      <MobileQuickBar 
+        onOpenExportModal={handleOpenExportModal}
+        onExploreWork={handleExploreWork}
+      />
 
       {/* Lightbox / Source Monitor Modal for Instagram Reels */}
       {selectedProject && (

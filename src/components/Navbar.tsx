@@ -80,38 +80,38 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExportModal }) => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4">
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-3 sm:px-6 lg:px-8 pt-2 sm:pt-4">
       <div id="scroll-progress" style={{ width: `${scrollProgress}%` }} />
       <nav 
-        className={`max-w-7xl mx-auto rounded-2xl transition-all duration-300 px-4 sm:px-6 py-3 ${
+        className={`max-w-7xl mx-auto rounded-2xl transition-all duration-300 px-3.5 sm:px-6 py-2.5 sm:py-3 ${
           scrolled 
             ? 'glass-nav shadow-2xl shadow-black/80 border border-white/10 backdrop-blur-xl' 
-            : 'bg-[#0A0C11]/70 backdrop-blur-md border border-white/5'
+            : 'bg-[#0A0C11]/85 backdrop-blur-md border border-white/5'
         }`}
       >
         <div className="flex items-center justify-between">
           {/* Brand & Availability Status */}
           <div 
             onClick={() => handleNavClick('hero')} 
-            className="flex items-center gap-3.5 cursor-pointer group select-none"
+            className="flex items-center gap-2.5 sm:gap-3.5 cursor-pointer group select-none"
           >
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 via-indigo-500 to-purple-500 p-[1.5px] shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-500/40 transition-all">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-tr from-cyan-500 via-indigo-500 to-purple-500 p-[1.5px] shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-500/40 transition-all shrink-0">
               <div className="w-full h-full bg-[#0B0D14] rounded-[10px] flex items-center justify-center">
-                <Play className="w-4 h-4 text-cyan-400 fill-cyan-400 ml-0.5 group-hover:scale-110 transition-transform" />
+                <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 fill-cyan-400 ml-0.5 group-hover:scale-110 transition-transform" />
               </div>
             </div>
 
             <div>
-              <div className="flex items-center gap-2">
-                <span className="font-display font-black text-lg tracking-tight text-white group-hover:text-cyan-400 transition-colors">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <span className="font-display font-black text-base sm:text-lg tracking-tight text-white group-hover:text-cyan-400 transition-colors">
                   BALAJI <span className="text-cyan-400">.B</span>
                 </span>
                 <span className="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  Available for Hire
+                  Available
                 </span>
               </div>
-              <p className="text-[11px] text-slate-400 tracking-wide font-medium hidden sm:block">
+              <p className="text-[10px] sm:text-[11px] text-slate-400 tracking-wide font-medium hidden xs:block">
                 Video Editor & Motion Designer
               </p>
             </div>
@@ -143,7 +143,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExportModal }) => {
           </div>
 
           {/* Right Action Bar */}
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-2 sm:gap-2.5">
             {/* Audio Feedback Toggle */}
             <button
               onClick={handleSoundToggle}
@@ -166,8 +166,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExportModal }) => {
               className="relative group overflow-hidden rounded-xl p-[1px] cursor-pointer shadow-lg shadow-cyan-500/15"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-indigo-500 to-purple-500 transition-opacity duration-300 group-hover:opacity-100 opacity-80" />
-              <div className="relative px-4 py-2 rounded-[11px] bg-[#0C0E16] flex items-center gap-2 text-xs font-semibold text-white group-hover:bg-[#111422] transition-colors">
-                <span>Book an Edit</span>
+              <div className="relative px-3.5 sm:px-4 py-2 rounded-[11px] bg-[#0C0E16] flex items-center gap-1.5 sm:gap-2 text-xs font-semibold text-white group-hover:bg-[#111422] transition-colors">
+                <span>Book Edit</span>
                 <ArrowRight className="w-3.5 h-3.5 text-cyan-400 group-hover:translate-x-1 transition-transform" />
               </div>
             </button>
@@ -219,6 +219,23 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExportModal }) => {
                   </button>
                 );
               })}
+            </div>
+
+            {/* Direct WhatsApp Quick Row in Mobile Drawer */}
+            <div className="mt-2.5 p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-xs text-emerald-300 font-medium">Instant WhatsApp Chat</span>
+              </div>
+              <a
+                href="https://wa.me/919840602461?text=Hi%20Balaji,%20I%20saw%20your%20video%20editor%20portfolio!"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={playClick}
+                className="px-3 py-1 rounded-lg bg-emerald-500 text-black text-xs font-bold hover:bg-emerald-400 transition-colors"
+              >
+                Chat Now
+              </a>
             </div>
 
             <div className="mt-3 pt-3 border-t border-white/10 flex items-center justify-between">

@@ -11,7 +11,8 @@ import {
   MessageSquare, 
   ExternalLink,
   Flame,
-  Volume2
+  Volume2,
+  MessageCircle
 } from 'lucide-react';
 import { playClick } from '../utils/audioFx';
 
@@ -31,57 +32,69 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onOpenExportModal }) 
   ];
 
   return (
-    <section id="hero" className="relative min-h-[92vh] pt-32 pb-20 px-4 sm:px-6 lg:px-8 flex items-center justify-center overflow-hidden studio-grid">
+    <section id="hero" className="relative min-h-[88vh] sm:min-h-[92vh] pt-28 sm:pt-32 pb-14 sm:pb-20 px-4 sm:px-6 lg:px-8 flex items-center justify-center overflow-hidden studio-grid">
       {/* Ambient background glows */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[42rem] h-[26rem] bg-gradient-to-tr from-cyan-500/15 via-indigo-600/15 to-purple-600/15 rounded-full blur-[120px] pointer-events-none -z-10 animate-pulse-glow" />
       <div className="absolute top-1/3 left-10 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-14 items-center">
         
         {/* LEFT COLUMN: Hero Copy & Value Proposition */}
-        <div className="lg:col-span-7 space-y-7 text-left">
+        <div className="lg:col-span-7 space-y-6 sm:space-y-7 text-left">
           
           {/* Availability Status Badge */}
-          <div className="hero-in inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md shadow-sm">
-            <span className="relative flex h-2.5 w-2.5">
+          <div className="hero-in inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md shadow-sm max-w-full">
+            <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5 shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+              <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-emerald-500" />
             </span>
-            <span className="text-xs font-semibold text-slate-200 tracking-wide">
+            <span className="text-[11px] sm:text-xs font-semibold text-slate-200 tracking-wide truncate">
               Available for Freelance & Long-term Edits
             </span>
-            <span className="text-slate-500">•</span>
-            <span className="text-xs text-cyan-400 font-medium">Puducherry / Remote</span>
+            <span className="text-slate-500 hidden xs:inline">•</span>
+            <span className="text-[11px] sm:text-xs text-cyan-400 font-medium hidden xs:inline shrink-0">Puducherry / Remote</span>
           </div>
 
           {/* Main Headline */}
           <div className="hero-in space-y-3" style={{ animationDelay: '.1s' }}>
-            <h1 className="font-display font-black text-4xl sm:text-6xl lg:text-7xl tracking-tight text-white leading-[1.08]">
+            <h1 className="font-display font-black text-3xl sm:text-5xl lg:text-7xl tracking-tight text-white leading-[1.12] sm:leading-[1.08]">
               Video Editor <span className="text-slate-500">&</span><br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-300 to-purple-400">
                 Motion Designer
               </span>
             </h1>
             
-            <p className="text-base sm:text-xl text-slate-300 max-w-2xl font-normal leading-relaxed pt-2">
+            <p className="text-sm sm:text-lg text-slate-300 max-w-2xl font-normal leading-relaxed pt-1 sm:pt-2">
               Hi, I'm <strong className="text-white font-semibold">Balaji .B</strong> — I turn raw footage into polished stories for brands, creators, events, and social media. From short-form edits to motion graphics, every cut is built to look sharp and feel intentional.
             </p>
           </div>
 
           {/* Action CTAs */}
-          <div className="hero-in flex flex-wrap items-center gap-4 pt-1" style={{ animationDelay: '.2s' }}>
+          <div className="hero-in flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-1" style={{ animationDelay: '.2s' }}>
             {/* Primary Action Button */}
             <button
               onClick={() => {
                 playClick();
                 onExploreWork();
               }}
-              className="btn-studio px-7 py-3.5 rounded-xl bg-gradient-to-r from-cyan-400 via-cyan-500 to-indigo-600 text-black hover:text-white font-bold text-sm shadow-xl shadow-cyan-500/20 hover:shadow-cyan-500/40 flex items-center gap-2.5 cursor-pointer group"
+              className="btn-studio px-6 sm:px-7 py-3.5 rounded-xl bg-gradient-to-r from-cyan-400 via-cyan-500 to-indigo-600 text-black hover:text-white font-bold text-sm shadow-xl shadow-cyan-500/20 hover:shadow-cyan-500/40 flex items-center justify-center gap-2.5 cursor-pointer group"
             >
               <span>Explore Featured Work</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
+
+            {/* Direct WhatsApp CTA Button */}
+            <a
+              href="https://wa.me/919840602461?text=Hi%20Balaji,%20I%20saw%20your%20video%20editor%20portfolio%20and%20would%20like%20to%20discuss%20a%20project!"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={playClick}
+              className="btn-studio px-5 sm:px-6 py-3.5 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-400 font-semibold text-sm border border-emerald-500/30 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-emerald-500/10"
+            >
+              <MessageCircle className="w-4 h-4 text-emerald-400" />
+              <span>WhatsApp Direct</span>
+            </a>
 
             {/* Secondary Action Button */}
             <button
@@ -89,7 +102,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onOpenExportModal }) 
                 playClick();
                 onOpenExportModal();
               }}
-              className="btn-studio px-7 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 text-white font-semibold text-sm border border-white/10 hover:border-white/20 flex items-center gap-2.5 cursor-pointer"
+              className="btn-studio px-5 sm:px-6 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 text-white font-semibold text-sm border border-white/10 hover:border-white/20 flex items-center justify-center gap-2 cursor-pointer"
             >
               <MessageSquare className="w-4 h-4 text-cyan-400" />
               <span>Book an Edit</span>
@@ -97,14 +110,14 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onOpenExportModal }) 
           </div>
 
           {/* Trust Metrics Bar */}
-          <div className="hero-in pt-4 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-4" style={{ animationDelay: '.3s' }}>
+          <div className="hero-in pt-3 sm:pt-4 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4" style={{ animationDelay: '.3s' }}>
             {trustMetrics.map((item, idx) => (
-              <div key={idx} className="space-y-0.5">
-                <p className="text-2xl sm:text-3xl font-black font-display text-white tracking-tight">
+              <div key={idx} className="p-2.5 sm:p-3 rounded-2xl bg-white/[0.03] border border-white/5 space-y-0.5">
+                <p className="text-xl sm:text-2xl lg:text-3xl font-black font-display text-white tracking-tight">
                   {item.val}
                 </p>
-                <p className="text-xs font-semibold text-slate-300">{item.label}</p>
-                <p className="text-[11px] text-slate-500">{item.desc}</p>
+                <p className="text-[11px] sm:text-xs font-semibold text-slate-300">{item.label}</p>
+                <p className="text-[10px] sm:text-[11px] text-slate-400">{item.desc}</p>
               </div>
             ))}
           </div>

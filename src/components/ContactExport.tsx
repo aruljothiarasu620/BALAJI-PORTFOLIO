@@ -262,7 +262,7 @@ export const ContactExport: React.FC<ContactExportProps> = ({ preselectedService
                         placeholder="e.g. Alex Kumar"
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-white text-xs placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors"
+                        className="w-full px-4 py-3.5 sm:py-3 rounded-xl bg-white/[0.04] border border-white/10 text-white text-sm sm:text-xs placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors"
                       />
                     </div>
 
@@ -278,7 +278,7 @@ export const ContactExport: React.FC<ContactExportProps> = ({ preselectedService
                         placeholder="+91 98765 43210"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-white text-xs placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors"
+                        className="w-full px-4 py-3.5 sm:py-3 rounded-xl bg-white/[0.04] border border-white/10 text-white text-sm sm:text-xs placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors"
                       />
                     </div>
                   </div>
@@ -295,7 +295,7 @@ export const ContactExport: React.FC<ContactExportProps> = ({ preselectedService
                         placeholder="your@email.com"
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-white text-xs placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors"
+                        className="w-full px-4 py-3.5 sm:py-3 rounded-xl bg-white/[0.04] border border-white/10 text-white text-sm sm:text-xs placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors"
                       />
                     </div>
 
@@ -308,7 +308,7 @@ export const ContactExport: React.FC<ContactExportProps> = ({ preselectedService
                         name="projectType"
                         value={formData.projectType}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl bg-[#10131B] border border-white/10 text-white text-xs focus:outline-none focus:border-cyan-400 transition-colors cursor-pointer"
+                        className="w-full px-4 py-3.5 sm:py-3 rounded-xl bg-[#10131B] border border-white/10 text-white text-sm sm:text-xs focus:outline-none focus:border-cyan-400 transition-colors cursor-pointer"
                       >
                         <option value="Instagram Reel (9:16)">Viral Instagram Reel (9:16)</option>
                         <option value="Event / Festival Aftermovie">Event / College Culturals Aftermovie</option>
@@ -329,7 +329,7 @@ export const ContactExport: React.FC<ContactExportProps> = ({ preselectedService
                       name="deadline"
                       value={formData.deadline}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl bg-[#10131B] border border-white/10 text-white text-xs focus:outline-none focus:border-cyan-400 transition-colors cursor-pointer"
+                      className="w-full px-4 py-3.5 sm:py-3 rounded-xl bg-[#10131B] border border-white/10 text-white text-sm sm:text-xs focus:outline-none focus:border-cyan-400 transition-colors cursor-pointer"
                     >
                       <option value="Rush Delivery (24-48 Hours)">⚡ Rush Turnaround (24 - 48 Hours)</option>
                       <option value="Within 1 Week">Within 1 Week</option>
