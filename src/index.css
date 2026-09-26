@@ -1,0 +1,300 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #07080B;
+    color: #F1F5F9;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Subtle Premium Ambient Film Grain (Extremely soft) */
+.film-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.018'/%3E%3C/svg%3E");
+}
+
+/* Modern Subtle Dot Grid Background */
+.studio-grid {
+  background-size: 32px 32px;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+/* NLE Grid Lines Pattern (Kept subtle for backwards compatibility) */
+.nle-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+}
+
+/* Timeline Track Ruler */
+.timeline-ruler {
+  background-size: 20px 100%;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+}
+
+/* Modern Glassmorphic Cards & Panels */
+.glass-panel {
+  background: rgba(16, 19, 27, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glass-panel-glow {
+  background: rgba(16, 19, 27, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.6), 0 0 30px -10px rgba(0, 212, 255, 0.12);
+}
+
+.glass-nav {
+  background: rgba(10, 12, 17, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Gradient Text Utilities */
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #FFFFFF 0%, #00D4FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-violet {
+  background: linear-gradient(135deg, #FFFFFF 0%, #A78BFA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #FDE68A 0%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom Scrollbar for Smooth Luxury Feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #07080B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1E2330;
+  border-radius: 4px;
+  border: 2px solid #07080B;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00D4FF;
+}
+
+
+/* ===== Premium Creative Portfolio Layer ===== */
+:root { color-scheme: dark; }
+body {
+  background:
+    radial-gradient(circle at 50% -10%, rgba(0,212,255,.09), transparent 34%),
+    #07080b;
+  letter-spacing: -0.01em;
+}
+::selection { background: #22d3ee; color: #041014; }
+
+/* Softer, editorial section rhythm */
+main > section { scroll-margin-top: 100px; }
+main > section + section { border-top-color: rgba(255,255,255,.045) !important; }
+
+/* Navigation: floating studio bar */
+header nav {
+  box-shadow: 0 18px 55px rgba(0,0,0,.28);
+  background: rgba(9,11,16,.76) !important;
+  border-color: rgba(255,255,255,.09) !important;
+}
+
+/* Cards feel like portfolio case studies, not app panels */
+.glass-panel,
+.glass-panel-glow {
+  background: linear-gradient(145deg, rgba(18,22,31,.88), rgba(10,12,18,.82));
+  border-color: rgba(255,255,255,.085);
+  box-shadow: 0 22px 60px rgba(0,0,0,.18);
+}
+.glass-panel:hover,
+.glass-panel-glow:hover {
+  border-color: rgba(34,211,238,.24);
+}
+
+/* Hero */
+#hero h1 { letter-spacing: -.045em; }
+#hero p { max-width: 650px; }
+#hero .aspect-\[9\/14\] { box-shadow: 0 30px 90px rgba(0,0,0,.55); }
+
+/* Better focus states for keyboard/mobile accessibility */
+button:focus-visible, a:focus-visible {
+  outline: 2px solid rgba(34,211,238,.9);
+  outline-offset: 3px;
+}
+
+/* Project cards */
+#projects .group {
+  transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
+#projects .group:hover { transform: translateY(-6px); }
+#projects .group img { transition: transform .7s cubic-bezier(.2,.7,.2,1); }
+
+/* Service cards */
+#services .group:hover { transform: translateY(-5px); }
+
+/* Section headings */
+section h2 { letter-spacing: -.035em; }
+
+/* Cleaner mobile spacing */
+@media (max-width: 640px) {
+  #hero { min-height: auto; padding-top: 7.5rem; padding-bottom: 4.5rem; }
+  #hero h1 { font-size: clamp(2.65rem, 13vw, 4rem); line-height: .98; }
+  section { scroll-margin-top: 82px; }
+  #projects, #services { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
+
+/* ===== Enhancement pass: motion system, type rhythm, scroll progress ===== */
+:root {
+  --ease-studio: cubic-bezier(.16,.84,.32,1);
+  --ease-snap: cubic-bezier(.2,.7,.2,1);
+}
+
+/* Consistent editorial type rhythm across sections */
+section p { line-height: 1.65; }
+h1, h2, h3 { text-wrap: balance; }
+
+/* Scroll progress indicator — a thin studio-accent bar tracking read position */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2.5px;
+  width: 0%;
+  background: linear-gradient(90deg, #00D4FF, #8B5CF6);
+  z-index: 60;
+  transition: width .12s var(--ease-snap);
+}
+
+/* One-time orchestrated hero entrance sequence (page load only, not scroll-linked) */
+@keyframes heroRise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-in {
+  animation: heroRise .8s var(--ease-studio) both;
+}
+
+/* Refined primary/secondary action buttons — single consistent interaction language */
+.btn-studio {
+  transition: transform .35s var(--ease-studio), box-shadow .35s var(--ease-studio), border-color .35s var(--ease-studio), background-color .35s var(--ease-studio);
+}
+.btn-studio:hover { transform: translateY(-1.5px); }
+.btn-studio:active { transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-in { animation: none; opacity: 1; transform: none; }
+}
+
+/* ===== Premium pass v2: whole-site elevation ===== */
+
+/* Ambient aurora mesh that spans the full scroll, not just the hero */
+#site-aurora {
+  position: fixed;
+  inset: 0;
+  z-index: -20;
+  pointer-events: none;
+  background:
+    radial-gradient(38rem 26rem at 12% 8%, rgba(0,212,255,.07), transparent 60%),
+    radial-gradient(34rem 24rem at 88% 28%, rgba(139,92,246,.07), transparent 60%),
+    radial-gradient(30rem 22rem at 50% 78%, rgba(245,158,11,.045), transparent 60%),
+    #07080B;
+}
+
+/* Consistent, richer section separation and rhythm */
+main > section { position: relative; }
+main > section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: min(1100px, 88%);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.09), transparent);
+}
+main > section:first-child::before { display: none; }
+
+/* Elevate every glass card, not just projects/services, to the same premium hover language */
+#about .glass-panel, #about .glass-panel-glow,
+#skills .glass-panel,
+#timeline .glass-panel,
+#achievements .glass-panel,
+#contact .glass-panel {
+  transition: transform .4s var(--ease-studio), border-color .4s var(--ease-studio), box-shadow .4s var(--ease-studio);
+}
+
+/* Specialty / service / achievement tiles: unified premium lift + glow */
+#about .group,
+#services .group,
+#achievements .group,
+#timeline .group {
+  transition: transform .35s var(--ease-studio), border-color .35s var(--ease-studio), background-color .35s var(--ease-studio);
+}
+#about .group:hover,
+#achievements .group:hover,
+#timeline .group:hover { transform: translateY(-4px); }
+
+/* Section eyebrow: quieter, more editorial (less "template label" tracking) */
+.font-mono.uppercase.tracking-widest {
+  letter-spacing: .12em;
+  font-weight: 600;
+}
+
+/* Section headings: stronger presence for a premium hierarchy */
+section h2.font-display {
+  text-shadow: 0 2px 40px rgba(0,212,255,.08);
+}
+
+/* Refined gradient rule under each section's heading block for structural clarity */
+main section .border-b {
+  border-image: linear-gradient(90deg, rgba(0,212,255,.35), rgba(139,92,246,.15), transparent) 1;
+}
+
+/* Premium CTA buttons everywhere share the same interaction language */
+button.rounded-xl, button.rounded-2xl, a.rounded-xl {
+  transition: transform .35s var(--ease-studio), box-shadow .35s var(--ease-studio), border-color .35s var(--ease-studio), background-color .35s var(--ease-studio);
+}
+
+/* Form fields: premium focus glow instead of a flat border swap */
+input:focus, select:focus, textarea:focus {
+  box-shadow: 0 0 0 3px rgba(34,211,238,.14);
+}
+
+/* Footer: subtle top glow to close the page with the same premium tone */
+footer { position: relative; }
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: min(1100px, 88%);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,212,255,.2), rgba(139,92,246,.2), transparent);
+}
