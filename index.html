@@ -1,22 +1,2142 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" class="dark scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300D4FF'><path d='M4 2v20l17-10L4 2z'/></svg>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BALAJI .B | Professional Video Editor & Motion Designer</title>
-    <meta name="description" content="Cinematic video editor with 5+ years of experience specializing in beat-synced Instagram Reels, event edits, color grading, motion graphics, and high-retention viral cuts." />
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Instagram embed script -->
-    <script async src="//www.instagram.com/embed.js"></script>
-  </head>
-  <body class="bg-nle-darkest text-slate-100 font-sans selection:bg-nle-cyan selection:text-black overflow-x-hidden">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BALAJI .B | Creative Video Editor & Social Media Reel Specialist</title>
+  <meta name="description" content="Portfolio of Balaji .B - Award-winning creative video editor with 5+ years of experience specializing in beat-synced Instagram Reels, college event aftermovies, cinematic color grading, and viral social content." />
+  <meta name="keywords" content="Balaji Video Editor, Instagram Reels Editor, Puducherry Video Editor, After Effects, CapCut Pro, Premiere Pro, Beat Sync Editor, Event Aftermovie" />
+  <meta name="author" content="Balaji .B" />
+  <meta property="og:title" content="BALAJI .B | Creative Video Editor Portfolio" />
+  <meta property="og:description" content="Crafting High-Octane Visuals, Beat-Synced Reels & Cinematic Aftermovies." />
+  <meta property="og:image" content="assets/balaji-portrait.jpg" />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238b5cf6'><path d='M4 2v20l17-10L4 2z'/></svg>" />
+
+  <!-- Google Fonts: Space Grotesk, Syne, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Space Grotesk', 'sans-serif'],
+            display: ['Syne', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            dark: {
+              base: '#07070a',
+              card: '#0c0d14',
+              surface: '#11121d',
+              border: 'rgba(255, 255, 255, 0.08)',
+            },
+            accent: {
+              purple: '#8b5cf6',
+              cyan: '#06b6d4',
+              pink: '#ec4899',
+              crimson: '#f43f5e',
+              amber: '#f59e0b',
+            }
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'glow': 'glow 4s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-12px)' },
+            },
+            glow: {
+              '0%': { opacity: '0.4', filter: 'blur(30px)' },
+              '100%': { opacity: '0.8', filter: 'blur(50px)' },
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Typed.js -->
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #07070a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #27273a;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #8b5cf6;
+    }
+
+    /* Film Grain Noise Background */
+    .bg-grain {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+
+    /* Glassmorphism Classes */
+    .glass-card {
+      background: rgba(15, 16, 26, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+    }
+    .glass-card-hover {
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-card-hover:hover {
+      transform: translateY(-6px);
+      border-color: rgba(139, 92, 246, 0.4);
+      box-shadow: 0 20px 40px -15px rgba(139, 92, 246, 0.25);
+    }
+
+    /* Custom Cursor (Desktop Only) */
+    @media (pointer: fine) {
+      body {
+        cursor: none;
+      }
+      .custom-cursor {
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        background-color: #06b6d4;
+        border-radius: 50%;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: width 0.2s, height 0.2s, background-color 0.2s;
+      }
+      .custom-cursor-follower {
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 36px;
+        height: 36px;
+        border: 1.5px solid rgba(139, 92, 246, 0.5);
+        border-radius: 50%;
+        z-index: 9998;
+        transform: translate(-50%, -50%);
+        transition: transform 0.15s ease-out, width 0.25s, height 0.25s, border-color 0.25s;
+      }
+      body:hover .custom-cursor.active {
+        width: 14px;
+        height: 14px;
+        background-color: #8b5cf6;
+      }
+      body:hover .custom-cursor-follower.active {
+        width: 60px;
+        height: 60px;
+        border-color: rgba(6, 182, 212, 0.8);
+        background: rgba(6, 182, 212, 0.08);
+      }
+    }
+    @media (pointer: coarse) {
+      .custom-cursor, .custom-cursor-follower {
+        display: none !important;
+      }
+    }
+
+    /* Text Gradient */
+    .text-gradient {
+      background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .text-gradient-purple {
+      background: linear-gradient(135deg, #c084fc 0%, #8b5cf6 50%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Waveform visualizer pulse */
+    .waveform-bar {
+      animation: soundwave 1.2s ease-in-out infinite alternate;
+    }
+    @keyframes soundwave {
+      0% { height: 4px; }
+      100% { height: 26px; }
+    }
+  </style>
+</head>
+<body class="bg-dark-base text-slate-100 font-body selection:bg-accent-purple selection:text-white overflow-x-hidden antialiased relative">
+
+  <!-- Custom Cursor Elements -->
+  <div class="custom-cursor" id="cursor"></div>
+  <div class="custom-cursor-follower" id="cursor-follower"></div>
+
+  <!-- Ambient Cinematic Glows -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-purple-900/20 rounded-full blur-[120px] animate-glow"></div>
+    <div class="absolute top-1/3 -right-40 w-[500px] h-[500px] bg-cyan-900/15 rounded-full blur-[140px] animate-glow" style="animation-delay: 2s;"></div>
+    <div class="absolute bottom-20 left-1/4 w-[450px] h-[450px] bg-rose-950/15 rounded-full blur-[130px] animate-glow" style="animation-delay: 3s;"></div>
+    <div class="absolute inset-0 bg-grain opacity-60"></div>
+  </div>
+
+  <!-- Sticky Frosted Navigation Bar -->
+  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-dark-base/75 border-b border-white/[0.06]" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group focus:outline-none">
+        <div class="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-cyan-500 p-[1px] shadow-lg shadow-purple-500/20 group-hover:scale-105 transition-transform duration-300">
+          <div class="w-full h-full bg-dark-base rounded-xl flex items-center justify-center">
+            <i data-lucide="film" class="w-5 h-5 text-purple-400 group-hover:text-cyan-400 transition-colors"></i>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-2">
+            <span class="font-heading font-extrabold text-xl tracking-wider text-white">BALAJI</span>
+            <span class="text-xs font-mono font-bold px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30">EDITS</span>
+          </div>
+          <div class="flex items-center gap-1.5 text-[10px] text-slate-400 font-mono tracking-widest uppercase">
+            <span class="w-1.5 h-1.5 rounded-full bg-rose-500 animate-ping"></span>
+            <span>REC 4K // 60FPS</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 font-heading text-sm font-medium tracking-wide text-slate-300">
+        <a href="#about" class="hover:text-purple-400 transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-purple-400 hover:after:w-full after:transition-all">About</a>
+        <a href="#services" class="hover:text-purple-400 transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-purple-400 hover:after:w-full after:transition-all">Services</a>
+        <a href="#works" class="hover:text-purple-400 transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-purple-400 hover:after:w-full after:transition-all">Works</a>
+        <a href="#workflow" class="hover:text-purple-400 transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-purple-400 hover:after:w-full after:transition-all">Process</a>
+        <a href="#achievements" class="hover:text-purple-400 transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-purple-400 hover:after:w-full after:transition-all">Awards</a>
+        <a href="#contact" class="hover:text-purple-400 transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-purple-400 hover:after:w-full after:transition-all">Contact</a>
+      </nav>
+
+      <!-- CTA & Social Quick Links -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="https://www.instagram.com/bala_xji?stkn=MW83aWVtYnA3czVkeQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl border border-white/10 hover:border-pink-500/50 hover:bg-pink-500/10 text-slate-300 hover:text-pink-400 transition-all duration-300" title="Instagram @bala_xji">
+          <i data-lucide="instagram" class="w-5 h-5"></i>
+        </a>
+        <a href="https://wa.me/919840602461?text=Hi%20Balaji,%20I%20want%20to%20hire%20you%20for%20a%20video%20edit!" target="_blank" rel="noopener noreferrer" class="relative group overflow-hidden rounded-xl p-[1px] font-heading text-xs font-semibold uppercase tracking-wider">
+          <span class="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-500 group-hover:scale-105 transition-transform duration-300"></span>
+          <span class="relative block px-4 py-2.5 bg-dark-base rounded-xl flex items-center gap-2 group-hover:bg-opacity-80 transition-all">
+            <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+            <span class="text-white">Hire Me</span>
+          </span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" aria-label="Toggle menu" class="md:hidden p-2 rounded-xl border border-white/10 text-slate-300 hover:text-white hover:border-purple-500 transition-colors">
+        <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-white/10 bg-dark-base/95 backdrop-blur-2xl px-6 py-6 transition-all duration-300">
+      <div class="flex flex-col gap-4 font-heading text-base">
+        <a href="#about" class="mobile-nav-link text-slate-300 hover:text-purple-400 transition-colors">About Balaji</a>
+        <a href="#services" class="mobile-nav-link text-slate-300 hover:text-purple-400 transition-colors">Editing Services</a>
+        <a href="#works" class="mobile-nav-link text-slate-300 hover:text-purple-400 transition-colors">Reels & Projects (21)</a>
+        <a href="#workflow" class="mobile-nav-link text-slate-300 hover:text-purple-400 transition-colors">Workflow Process</a>
+        <a href="#achievements" class="mobile-nav-link text-slate-300 hover:text-purple-400 transition-colors">Achievements & Awards</a>
+        <a href="#contact" class="mobile-nav-link text-slate-300 hover:text-purple-400 transition-colors">Contact / Bookings</a>
+      </div>
+      <div class="mt-6 pt-6 border-t border-white/10 flex items-center justify-between">
+        <a href="https://www.instagram.com/bala_xji?stkn=MW83aWVtYnA3czVkeQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-pink-400 text-sm font-semibold">
+          <i data-lucide="instagram" class="w-4 h-4"></i> @bala_xji
+        </a>
+        <a href="https://wa.me/919840602461?text=Hi%20Balaji,%20I%20want%20to%20hire%20you%20for%20a%20video%20edit!" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-purple-600 text-white font-heading text-xs font-bold flex items-center gap-1.5">
+          <i data-lucide="message-square" class="w-3.5 h-3.5"></i> WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10 pt-20">
+
+    <!-- 1. HERO SECTION -->
+    <section id="hero" class="relative min-h-[92vh] flex items-center justify-center py-16 sm:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Hero Copy -->
+        <div class="lg:col-span-7 flex flex-col items-start space-y-6 text-left">
+          
+          <!-- Availability Pill -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono tracking-wide shadow-[0_0_15px_rgba(16,185,129,0.15)]">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="font-bold">AVAILABLE FOR FREELANCE & PART-TIME PROJECTS</span>
+          </div>
+
+          <!-- Main Impact Title with Typed.js -->
+          <h1 class="font-heading font-black text-4xl sm:text-5xl md:text-6xl xl:text-7xl tracking-tight text-white leading-[1.1]">
+            Crafting High-Octane Visuals & <br class="hidden sm:inline" />
+            <span id="typed-text" class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400"></span>
+          </h1>
+
+          <!-- Subheadline -->
+          <p class="text-slate-300 text-base sm:text-lg md:text-xl font-normal max-w-2xl leading-relaxed">
+            I am <span class="text-white font-semibold">BALAJI .B</span>, transforming raw footage into engaging stories with seamless transitions, cinematic color grades, and punchy audio design.
+          </p>
+
+          <!-- Key Metrics Grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 w-full pt-2">
+            <div class="glass-card rounded-2xl p-4 border border-white/5 flex flex-col">
+              <span class="font-mono text-2xl sm:text-3xl font-bold text-cyan-400">5+</span>
+              <span class="text-xs text-slate-400 font-medium mt-1">Years Experience</span>
+            </div>
+            <div class="glass-card rounded-2xl p-4 border border-white/5 flex flex-col">
+              <span class="font-mono text-2xl sm:text-3xl font-bold text-purple-400">100+</span>
+              <span class="text-xs text-slate-400 font-medium mt-1">Projects Completed</span>
+            </div>
+            <div class="glass-card rounded-2xl p-4 border border-white/5 flex flex-col">
+              <span class="font-mono text-2xl sm:text-3xl font-bold text-emerald-400">100%</span>
+              <span class="text-xs text-slate-400 font-medium mt-1">Client Satisfaction</span>
+            </div>
+            <div class="glass-card rounded-2xl p-4 border border-amber-500/20 bg-amber-500/5 flex flex-col">
+              <div class="flex items-center gap-1 text-amber-400 font-mono text-lg sm:text-xl font-bold">
+                <span>🏆 2nd</span>
+              </div>
+              <span class="text-xs text-amber-200/80 font-medium mt-1">SMVEC Culturals Winner</span>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center gap-4 pt-4 w-full sm:w-auto">
+            <a href="#works" class="px-7 py-4 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 hover:from-purple-500 hover:to-cyan-400 text-white font-heading font-bold text-sm tracking-wide shadow-lg shadow-purple-600/30 hover:shadow-cyan-500/30 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3">
+              <i data-lucide="play" class="w-4 h-4 fill-white"></i>
+              <span>View My Edits (21 Reels)</span>
+            </a>
+            <a href="https://wa.me/919840602461?text=Hi%20Balaji,%20I%20saw%20your%20portfolio%20and%20want%20to%20discuss%20a%20project!" target="_blank" rel="noopener noreferrer" class="px-7 py-4 rounded-xl glass-card border border-white/10 hover:border-emerald-500/50 hover:bg-emerald-500/10 text-slate-200 hover:text-white font-heading font-bold text-sm tracking-wide transition-all flex items-center justify-center gap-3">
+              <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+              <span>Chat on WhatsApp</span>
+            </a>
+          </div>
+
+          <!-- Audio waveform aesthetic ticker -->
+          <div class="flex items-center gap-4 pt-2 text-xs font-mono text-slate-500">
+            <div class="flex items-end gap-1 h-5">
+              <span class="waveform-bar w-1 bg-purple-500/70 rounded-full" style="animation-delay: 0.1s"></span>
+              <span class="waveform-bar w-1 bg-cyan-500/70 rounded-full" style="animation-delay: 0.3s"></span>
+              <span class="waveform-bar w-1 bg-pink-500/70 rounded-full" style="animation-delay: 0.5s"></span>
+              <span class="waveform-bar w-1 bg-purple-500/70 rounded-full" style="animation-delay: 0.2s"></span>
+              <span class="waveform-bar w-1 bg-indigo-500/70 rounded-full" style="animation-delay: 0.4s"></span>
+            </div>
+            <span>MASTER AUDIO // 48kHz 24-BIT // ZERO FRAME DROP</span>
+          </div>
+
+        </div>
+
+        <!-- Right Hero Visual Showcase -->
+        <div class="lg:col-span-5 flex justify-center relative">
+          <div class="relative w-full max-w-sm sm:max-w-md animate-float">
+            
+            <!-- Glowing background gradient ring -->
+            <div class="absolute -inset-2 bg-gradient-to-tr from-purple-600 via-pink-600 to-cyan-500 rounded-3xl blur-2xl opacity-40 group-hover:opacity-75 transition duration-1000"></div>
+
+            <!-- Profile / Video Editor Card Surface -->
+            <div class="relative rounded-3xl glass-card border border-white/15 overflow-hidden shadow-2xl p-4">
+              
+              <!-- Film HUD Header -->
+              <div class="flex items-center justify-between px-3 py-2 border-b border-white/10 text-[11px] font-mono text-slate-400">
+                <span class="flex items-center gap-1.5 text-rose-400">
+                  <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+                  LIVE NLE TIMELINE
+                </span>
+                <span class="text-cyan-400">TC 00:04:22:18</span>
+              </div>
+
+              <!-- Main Hero Image Frame -->
+              <div class="relative mt-3 rounded-2xl overflow-hidden aspect-[4/5] bg-dark-surface group">
+                <img 
+                  src="assets/balaji-portrait.jpg" 
+                  alt="Balaji .B - Professional Video Editor" 
+                  class="w-full h-full object-cover object-center filter saturate-110 contrast-105 group-hover:scale-105 transition-transform duration-700"
+                  onerror="this.onerror=null; this.src='assets/balaji-avatar.jpg';"
+                />
+                
+                <!-- Overlay Gradients & Metadata -->
+                <div class="absolute inset-0 bg-gradient-to-t from-dark-base via-dark-base/20 to-transparent"></div>
+
+                <!-- Video HUD Elements on Image -->
+                <div class="absolute top-4 left-4 flex flex-col gap-1.5">
+                  <span class="px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-mono text-purple-300">
+                    LUT: TEAL_ORANGE_CINEMA_V2
+                  </span>
+                  <span class="px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-mono text-cyan-300">
+                    BPM: 132 // BEAT LOCKED
+                  </span>
+                </div>
+
+                <!-- Bottom Float Tag -->
+                <div class="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-black/75 backdrop-blur-md border border-white/15 flex items-center justify-between">
+                  <div>
+                    <h3 class="font-heading font-bold text-white text-sm">Balaji .B</h3>
+                    <p class="text-[11px] text-slate-300">Video Editor & Reel Specialist</p>
+                  </div>
+                  <div class="flex items-center gap-1 text-emerald-400 text-xs font-mono">
+                    <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+                    <span>Verified</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Software Pills Footer -->
+              <div class="flex items-center justify-around pt-4 pb-1 text-xs font-mono text-slate-400">
+                <span class="flex items-center gap-1.5"><i data-lucide="layers" class="w-3.5 h-3.5 text-purple-400"></i> After Effects</span>
+                <span class="flex items-center gap-1.5"><i data-lucide="zap" class="w-3.5 h-3.5 text-cyan-400"></i> CapCut Pro</span>
+                <span class="flex items-center gap-1.5"><i data-lucide="film" class="w-3.5 h-3.5 text-pink-400"></i> Premiere Pro</span>
+              </div>
+
+            </div>
+
+            <!-- Decorative floating badge -->
+            <div class="absolute -bottom-5 -right-5 p-3 rounded-2xl glass-card border border-amber-500/40 shadow-xl flex items-center gap-3 bg-dark-base/90 hidden sm:flex">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-xl">
+                🏆
+              </div>
+              <div class="text-left font-mono">
+                <div class="text-xs text-amber-400 font-bold">2nd Prize Award</div>
+                <div class="text-[10px] text-slate-400">SMVEC Culturals</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. ABOUT & CREATIVE SKILLS SECTION -->
+    <section id="about" class="py-24 px-4 sm:px-6 lg:px-8 relative border-t border-white/[0.04]">
+      <div class="max-w-7xl mx-auto">
+        
+        <!-- Section Header -->
+        <div class="flex flex-col items-center text-center space-y-4 mb-16">
+          <span class="px-3.5 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-mono uppercase tracking-widest">
+            01 // Master The Craft
+          </span>
+          <h2 class="font-heading font-black text-3xl sm:text-5xl text-white tracking-tight">
+            About The <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400">Editor</span>
+          </h2>
+          <p class="text-slate-400 max-w-2xl text-base sm:text-lg">
+            A fusion of creative storytelling, surgical beat synchronization, and next-generation motion design.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Bio Story Card (7 cols) -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="glass-card rounded-3xl p-6 sm:p-8 border border-white/10 space-y-6">
+              <div class="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-4">
+                <div class="flex items-center gap-3">
+                  <img src="assets/balaji-avatar.jpg" alt="Balaji Avatar" class="w-12 h-12 rounded-full object-cover border border-purple-400/40" onerror="this.onerror=null; this.src='assets/balaji-portrait.jpg';" />
+                  <div>
+                    <h3 class="font-heading font-bold text-xl text-white">BALAJI .B</h3>
+                    <p class="text-xs font-mono text-purple-300">Creative Video Editor & Reel Specialist</p>
+                  </div>
+                </div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-slate-300">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5 text-rose-400"></i>
+                  <span>Puducherry, Thiruvandarkoil</span>
+                </div>
+              </div>
+
+              <div class="space-y-4 text-slate-300 text-base leading-relaxed">
+                <p>
+                  With <strong class="text-white">5+ years of editing experience</strong>, I bring a distinct cinematic flavor to the fast-moving world of modern social media. My editing philosophy revolves around the heartbeat of audio: matching micro-movements, scene cuts, and kinetic typography with bass hits and sonic risers.
+                </p>
+                <p>
+                  From electrifying college cultural aftermovies attended by thousands to high-converting promotional reels for brands, creators, and gym enthusiasts, I focus on <strong class="text-purple-300">viewer retention</strong> and undeniable visual impact.
+                </p>
+              </div>
+
+              <!-- Special Editing Styles Grid -->
+              <div class="pt-4 border-t border-white/10">
+                <h4 class="text-xs font-mono uppercase tracking-widest text-slate-400 mb-4 flex items-center gap-2">
+                  <i data-lucide="sparkles" class="w-4 h-4 text-cyan-400"></i> Signature Editing Styles
+                </h4>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  <div class="p-3 rounded-xl bg-white/[0.03] border border-white/5 text-center">
+                    <span class="text-xs font-heading font-semibold text-slate-200">Fast-Paced & Energetic</span>
+                  </div>
+                  <div class="p-3 rounded-xl bg-white/[0.03] border border-white/5 text-center">
+                    <span class="text-xs font-heading font-semibold text-slate-200">Beat-Sync Precision</span>
+                  </div>
+                  <div class="p-3 rounded-xl bg-white/[0.03] border border-white/5 text-center">
+                    <span class="text-xs font-heading font-semibold text-slate-200">Viral Social Hooks</span>
+                  </div>
+                  <div class="p-3 rounded-xl bg-white/[0.03] border border-white/5 text-center">
+                    <span class="text-xs font-heading font-semibold text-slate-200">Cinematic Color Grading</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Before/After Color Grading Comparison Preview -->
+            <div class="glass-card rounded-3xl p-6 border border-white/10 relative overflow-hidden">
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="sliders" class="w-4 h-4 text-cyan-400"></i>
+                  <h4 class="font-heading font-bold text-sm text-white">Color Grading Showcase: Flat Log vs. Final Grade</h4>
+                </div>
+                <span class="text-[11px] font-mono text-slate-400">Slide to compare</span>
+              </div>
+
+              <!-- Interactive Split Slider Container -->
+              <div class="relative w-full aspect-video rounded-2xl overflow-hidden select-none cursor-ew-resize border border-white/10 group" id="grade-slider-container">
+                <!-- After Image (Full background) -->
+                <img 
+                  src="thumbnails/reel-11.jpg" 
+                  alt="Final Graded Footage" 
+                  class="absolute inset-0 w-full h-full object-cover filter contrast-125 saturate-125 brightness-105"
+                  onerror="this.onerror=null; this.src='thumbnails/reel-3.jpg';"
+                />
+                <div class="absolute top-3 right-3 px-2 py-1 rounded bg-black/75 border border-cyan-500/50 text-[10px] font-mono text-cyan-300">
+                  FINAL GRADE (TEAL & AMBER)
+                </div>
+
+                <!-- Before Image (Clipped) -->
+                <div class="absolute inset-0 w-1/2 overflow-hidden border-r-2 border-white shadow-[0_0_20px_rgba(255,255,255,0.8)]" id="grade-slider-clip">
+                  <img 
+                    src="thumbnails/reel-11.jpg" 
+                    alt="Raw Log Footage" 
+                    class="absolute inset-0 w-full h-full object-cover filter contrast-75 brightness-90 grayscale-[40%]" 
+                    id="grade-slider-before-img"
+                    onerror="this.onerror=null; this.src='thumbnails/reel-3.jpg';"
+                  />
+                  <div class="absolute top-3 left-3 px-2 py-1 rounded bg-black/75 border border-white/20 text-[10px] font-mono text-slate-400">
+                    RAW LOG CAMERA
+                  </div>
+                </div>
+
+                <!-- Slider Handle -->
+                <div class="absolute top-0 bottom-0 left-1/2 -ml-4 flex items-center justify-center pointer-events-none" id="grade-slider-handle">
+                  <div class="w-8 h-8 rounded-full bg-white text-dark-base shadow-xl flex items-center justify-center text-xs font-bold">
+                    <i data-lucide="chevrons-left-right" class="w-4 h-4"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Software Mastery & Toolkit Cards (5 cols) -->
+          <div class="lg:col-span-5 space-y-5">
+            <h3 class="font-heading font-bold text-xl text-white flex items-center gap-2">
+              <i data-lucide="cpu" class="w-5 h-5 text-purple-400"></i> Core Software Mastery
+            </h3>
+
+            <!-- Tool 1: Adobe After Effects -->
+            <div class="glass-card rounded-2xl p-5 border border-purple-500/20 bg-gradient-to-br from-purple-950/20 to-transparent hover:border-purple-500/40 transition-all">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-purple-900/60 border border-purple-500/40 flex items-center justify-center font-heading font-black text-purple-300">
+                    Ae
+                  </div>
+                  <div>
+                    <h4 class="font-heading font-bold text-white text-base">Adobe After Effects</h4>
+                    <span class="text-xs text-purple-300 font-mono">Advanced Motion & VFX</span>
+                  </div>
+                </div>
+                <span class="text-xs font-mono font-bold text-purple-400">95%</span>
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed mb-3">
+                Complex 3D camera tracking, custom motion graphics, kinetic titles, glow overlays, speed ramping, glitch transitions, and precision masking.
+              </p>
+              <div class="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
+                <div class="w-[95%] h-full bg-gradient-to-r from-purple-600 to-pink-500 rounded-full"></div>
+              </div>
+            </div>
+
+            <!-- Tool 2: CapCut Pro -->
+            <div class="glass-card rounded-2xl p-5 border border-cyan-500/20 bg-gradient-to-br from-cyan-950/20 to-transparent hover:border-cyan-500/40 transition-all">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-cyan-900/60 border border-cyan-500/40 flex items-center justify-center font-heading font-black text-cyan-300">
+                    Cc
+                  </div>
+                  <div>
+                    <h4 class="font-heading font-bold text-white text-base">CapCut Pro</h4>
+                    <span class="text-xs text-cyan-300 font-mono">High-Speed Viral Reel Workflows</span>
+                  </div>
+                </div>
+                <span class="text-xs font-mono font-bold text-cyan-400">98%</span>
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed mb-3">
+                Instant velocity curves, keyframing, AI kinetic auto-captions, trending audio algorithms, quick-turnaround Instagram Reels and YouTube Shorts.
+              </p>
+              <div class="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
+                <div class="w-[98%] h-full bg-gradient-to-r from-cyan-500 to-indigo-500 rounded-full"></div>
+              </div>
+            </div>
+
+            <!-- Tool 3: Adobe Premiere Pro -->
+            <div class="glass-card rounded-2xl p-5 border border-indigo-500/20 bg-gradient-to-br from-indigo-950/20 to-transparent hover:border-indigo-500/40 transition-all">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-indigo-900/60 border border-indigo-500/40 flex items-center justify-center font-heading font-black text-indigo-300">
+                    Pr
+                  </div>
+                  <div>
+                    <h4 class="font-heading font-bold text-white text-base">Adobe Premiere Pro</h4>
+                    <span class="text-xs text-indigo-300 font-mono">Long-Form & Multi-Cam Sync</span>
+                  </div>
+                </div>
+                <span class="text-xs font-mono font-bold text-indigo-400">90%</span>
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed mb-3">
+                Lumetri color grading scopes, multi-camera event switching, dialogue denoise & audio mastering, seamless timeline assembly.
+              </p>
+              <div class="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
+                <div class="w-[90%] h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
+              </div>
+            </div>
+
+            <!-- Quick Specs Info Box -->
+            <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/10 font-mono text-xs text-slate-400 space-y-2">
+              <div class="flex justify-between">
+                <span>Turnaround Time:</span>
+                <span class="text-white font-semibold">24 - 48 Hours for Reels</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Output Formats:</span>
+                <span class="text-white font-semibold">4K / 1080p 60FPS (H.265 / ProRes)</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Revisions Policy:</span>
+                <span class="text-emerald-400 font-semibold">Fast Revisions Included</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. SERVICES OFFERED -->
+    <section id="services" class="py-24 px-4 sm:px-6 lg:px-8 relative border-t border-white/[0.04] bg-dark-card/30">
+      <div class="max-w-7xl mx-auto">
+        
+        <!-- Section Header -->
+        <div class="flex flex-col items-center text-center space-y-4 mb-16">
+          <span class="px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono uppercase tracking-widest">
+            02 // High-Demand Editing
+          </span>
+          <h2 class="font-heading font-black text-3xl sm:text-5xl text-white tracking-tight">
+            Services <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400">Offered</span>
+          </h2>
+          <p class="text-slate-400 max-w-2xl text-base sm:text-lg">
+            Engineered to skyrocket viewer retention, spark engagement, and elevate brand prestige.
+          </p>
+        </div>
+
+        <!-- 6 Interactive Service Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Service 1 -->
+          <div class="glass-card glass-card-hover rounded-3xl p-7 border border-white/10 flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 text-purple-400 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-purple-500 group-hover:text-white transition-all duration-300">
+                <i data-lucide="smartphone" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-heading font-bold text-xl text-white mb-3 group-hover:text-purple-300 transition-colors">
+                Instagram Reels & Shorts
+              </h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                Fast cuts, viral trending hooks, kinetic auto-captions with custom highlights, sound design, and retention-focused pacing optimized for the Instagram & YouTube algorithm.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10 text-[11px] font-mono text-purple-300">
+              <span class="px-2 py-0.5 rounded bg-white/5">Viral Hooks</span>
+              <span class="px-2 py-0.5 rounded bg-white/5">Auto-Captions</span>
+              <span class="px-2 py-0.5 rounded bg-white/5">9:16 Vertical</span>
+            </div>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="glass-card glass-card-hover rounded-3xl p-7 border border-white/10 flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-white transition-all duration-300">
+                <i data-lucide="party-popper" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-heading font-bold text-xl text-white mb-3 group-hover:text-cyan-300 transition-colors">
+                College & Cultural Aftermovies
+              </h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                High-energy crowd hype edits, stage lighting sync, concert bass drops, multi-cam concert footage assembly, and cinematic festival storytelling that captures unforgettable memories.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10 text-[11px] font-mono text-cyan-300">
+              <span class="px-2 py-0.5 rounded bg-white/5">Crowd Hype</span>
+              <span class="px-2 py-0.5 rounded bg-white/5">Light Sync</span>
+              <span class="px-2 py-0.5 rounded bg-white/5">Bass Drops</span>
+            </div>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="glass-card glass-card-hover rounded-3xl p-7 border border-white/10 flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-pink-500/10 border border-pink-500/30 text-pink-400 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-pink-500 group-hover:text-white transition-all duration-300">
+                <i data-lucide="heart" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-heading font-bold text-xl text-white mb-3 group-hover:text-pink-300 transition-colors">
+                Cinematic Engagements & Birthdays
+              </h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                Warm emotional storytelling, graceful speed-ramping, slow-motion moments, romantic acoustic/orchestral track blending, and timeless family cinematic highlights.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10 text-[11px] font-mono text-pink-300">
+              <span class="px-2 py-0.5 rounded bg-white/5">Emotional Story</span>
+              <span class="px-2 py-0.5 rounded bg-white/5">Speed Ramping</span>
+              <span class="px-2 py-0.5 rounded bg-white/5">Warm Grade</span>
+            </div>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="glass-card glass-card-hover rounded-3xl p-7 border border-white/10 flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-400 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-rose-500 group-hover:text-white transition-all duration-300">
+                <i data-lucide="dumbbell" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-heading font-bold text-xl text-white mb-3 group-hover:text-rose-300 transition-colors">
+                Fitness & Gym Promo Edits
+              </h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                Aggressive bass beat drops, velocity edits, camera shake transitions, flash syncs, and high-tempo hype visuals that push adrenaline to the absolute maximum.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10 text-[11px] font-mono text-rose-300">
+              <span class="px-2 py-0.5 rounded bg-white/5">Velocity Curves</span>
+              <span class="px-2 py-0.5 rounded bg-white/5">Bass Hit Sync</span>
+              <span class="px-2 py-0.5 rounded bg-white/5">Adrenaline FX</span>
+            </div>
+          </div>
+
+          <!-- Service 5 -->
+          <div class="glass-card glass-card-hover rounded-3xl p-7 border border-white/10 flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition-all duration-300">
+                <i data-lucide="sparkles" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-heading font-bold text-xl text-white mb-3 group-hover:text-amber-300 transition-colors">
+                Motion Graphics & VFX
+              </h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                Custom kinetic typography, 3D camera tracking, green-screen composites, glitch transitions, glowing outlines, and eye-catching logo intro/outro animations.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10 text-[11px] font-mono text-amber-300">
+              <span class="px-2 py-0.5 rounded bg-white/5">3D Tracking</span>
+              <span class="px-2 py-0.5 rounded bg-white/5">Glitch FX</span>
+              <span class="px-2 py-0.5 rounded bg-white/5">Kinetic Titles</span>
+            </div>
+          </div>
+
+          <!-- Service 6 -->
+          <div class="glass-card glass-card-hover rounded-3xl p-7 border border-white/10 flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
+                <i data-lucide="volume-2" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-heading font-bold text-xl text-white mb-3 group-hover:text-emerald-300 transition-colors">
+                Color Grading & SFX Design
+              </h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                Hollywood teal & orange, mood LUTs, natural skin-tone preservation, multi-layered sound design with sub-bass hits, swooshes, risers, and immersive atmospheric textures.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10 text-[11px] font-mono text-emerald-300">
+              <span class="px-2 py-0.5 rounded bg-white/5">Cinematic LUTs</span>
+              <span class="px-2 py-0.5 rounded bg-white/5">Sub-Bass SFX</span>
+              <span class="px-2 py-0.5 rounded bg-white/5">Audio Mastering</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. WORKS & PORTFOLIO (21 INSTAGRAM REELS) -->
+    <section id="works" class="py-24 px-4 sm:px-6 lg:px-8 relative border-t border-white/[0.04]">
+      <div class="max-w-7xl mx-auto">
+        
+        <!-- Section Header -->
+        <div class="flex flex-col items-center text-center space-y-4 mb-12">
+          <span class="px-3.5 py-1 rounded-full bg-pink-500/10 border border-pink-500/30 text-pink-400 text-xs font-mono uppercase tracking-widest">
+            03 // Featured Projects
+          </span>
+          <h2 class="font-heading font-black text-3xl sm:text-5xl text-white tracking-tight">
+            Selected <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400">Reels & Edits</span>
+          </h2>
+          <p class="text-slate-400 max-w-2xl text-base sm:text-lg">
+            Explore 21 handpicked vertical edits crafted with dynamic velocity, audio synchronization, and high-retention pacing.
+          </p>
+
+          <!-- Filter Tabs -->
+          <div class="flex flex-wrap items-center justify-center gap-2 pt-6" id="filter-tabs">
+            <button data-filter="all" class="filter-btn active px-4 py-2 rounded-xl text-xs font-heading font-semibold transition-all duration-300 bg-purple-600 text-white shadow-lg shadow-purple-600/30">
+              All Works (21)
+            </button>
+            <button data-filter="trending" class="filter-btn px-4 py-2 rounded-xl text-xs font-heading font-semibold transition-all duration-300 bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/5">
+              Trending Reels
+            </button>
+            <button data-filter="events" class="filter-btn px-4 py-2 rounded-xl text-xs font-heading font-semibold transition-all duration-300 bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/5">
+              Events & Culturals
+            </button>
+            <button data-filter="cinematic" class="filter-btn px-4 py-2 rounded-xl text-xs font-heading font-semibold transition-all duration-300 bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/5">
+              Cinematic & Mood
+            </button>
+            <button data-filter="fitness" class="filter-btn px-4 py-2 rounded-xl text-xs font-heading font-semibold transition-all duration-300 bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/5">
+              Fitness & Hype
+            </button>
+          </div>
+        </div>
+
+        <!-- 21 Video Project Cards Grid (Responsive 9:16 vertical ratio) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="reels-grid">
+          
+          <!-- Reel Card 1 -->
+          <div class="reel-card group relative glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-500" data-category="events">
+            <div class="relative aspect-[9/16] overflow-hidden bg-dark-surface">
+              <img src="thumbnails/reel-1.jpg" alt="Mass Culturals Edit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.onerror=null; this.src='thumbnails/reel-19.jpg';" />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-base via-dark-base/30 to-transparent"></div>
+              
+              <!-- Badges -->
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-purple-500/80 backdrop-blur-md text-[10px] font-mono font-bold text-white uppercase tracking-wider">
+                  Events & Culturals
+                </span>
+                <span class="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-cyan-300 flex items-center gap-1">
+                  <i data-lucide="zap" class="w-3 h-3"></i> Reel #1
+                </span>
+              </div>
+
+              <!-- Animated Play Center Overlay -->
+              <a href="https://www.instagram.com/reel/DdB1r_Moo3X/" target="_blank" rel="noopener noreferrer" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-xl shadow-purple-600/50 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                  <i data-lucide="play" class="w-6 h-6 fill-white ml-0.5"></i>
+                </div>
+              </a>
+
+              <!-- Bottom Content Overlay -->
+              <div class="absolute bottom-0 left-0 right-0 p-4 space-y-2">
+                <h4 class="font-heading font-bold text-white text-base group-hover:text-purple-300 transition-colors line-clamp-1">
+                  Mass Culturals Aftermovie
+                </h4>
+                <p class="text-xs text-slate-300 line-clamp-2">
+                  High-tempo festival stage lighting, bass drops, and crowd roar edit.
+                </p>
+                <div class="pt-2 flex items-center justify-between">
+                  <a href="https://www.instagram.com/reel/DdB1r_Moo3X/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-pink-400 hover:text-pink-300 transition-colors">
+                    <span>Watch on Instagram</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <span class="text-[10px] font-mono text-slate-400">SMVEC Fest</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel Card 2 -->
+          <div class="reel-card group relative glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-500" data-category="trending">
+            <div class="relative aspect-[9/16] overflow-hidden bg-dark-surface">
+              <img src="thumbnails/reel-2.jpg" alt="Trending Beat Sync" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.onerror=null; this.src='thumbnails/reel-5.jpg';" />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-base via-dark-base/30 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-cyan-500/80 backdrop-blur-md text-[10px] font-mono font-bold text-white uppercase tracking-wider">
+                  Trending Reels
+                </span>
+                <span class="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-cyan-300 flex items-center gap-1">
+                  <i data-lucide="zap" class="w-3 h-3"></i> Reel #2
+                </span>
+              </div>
+
+              <a href="https://www.instagram.com/reel/Dau94Uisf8O/" target="_blank" rel="noopener noreferrer" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-xl shadow-purple-600/50 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                  <i data-lucide="play" class="w-6 h-6 fill-white ml-0.5"></i>
+                </div>
+              </a>
+
+              <div class="absolute bottom-0 left-0 right-0 p-4 space-y-2">
+                <h4 class="font-heading font-bold text-white text-base group-hover:text-cyan-300 transition-colors line-clamp-1">
+                  Trending Beat Sync Velocity
+                </h4>
+                <p class="text-xs text-slate-300 line-clamp-2">
+                  Micro-timed cuts locked to audio transients with smooth velocity curves.
+                </p>
+                <div class="pt-2 flex items-center justify-between">
+                  <a href="https://www.instagram.com/reel/Dau94Uisf8O/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-pink-400 hover:text-pink-300 transition-colors">
+                    <span>Watch on Instagram</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <span class="text-[10px] font-mono text-slate-400">Viral Beat</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel Card 3 -->
+          <div class="reel-card group relative glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-500" data-category="cinematic">
+            <div class="relative aspect-[9/16] overflow-hidden bg-dark-surface">
+              <img src="thumbnails/reel-3.jpg" alt="Cinematic Visuals" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-base via-dark-base/30 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-indigo-500/80 backdrop-blur-md text-[10px] font-mono font-bold text-white uppercase tracking-wider">
+                  Cinematic & Mood
+                </span>
+                <span class="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-cyan-300 flex items-center gap-1">
+                  <i data-lucide="zap" class="w-3 h-3"></i> Reel #3
+                </span>
+              </div>
+
+              <a href="https://www.instagram.com/reel/DTbm1giEztE/" target="_blank" rel="noopener noreferrer" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-xl shadow-purple-600/50 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                  <i data-lucide="play" class="w-6 h-6 fill-white ml-0.5"></i>
+                </div>
+              </a>
+
+              <div class="absolute bottom-0 left-0 right-0 p-4 space-y-2">
+                <h4 class="font-heading font-bold text-white text-base group-hover:text-indigo-300 transition-colors line-clamp-1">
+                  Cinematic Visual Journey
+                </h4>
+                <p class="text-xs text-slate-300 line-clamp-2">
+                  Atmospheric visual pacing with rich teal & orange color grading.
+                </p>
+                <div class="pt-2 flex items-center justify-between">
+                  <a href="https://www.instagram.com/reel/DTbm1giEztE/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-pink-400 hover:text-pink-300 transition-colors">
+                    <span>Watch on Instagram</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <span class="text-[10px] font-mono text-slate-400">Cinematic 4K</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel Card 4 -->
+          <div class="reel-card group relative glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-500" data-category="events">
+            <div class="relative aspect-[9/16] overflow-hidden bg-dark-surface">
+              <img src="thumbnails/reel-4.jpg" alt="College Event Hype" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-base via-dark-base/30 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-purple-500/80 backdrop-blur-md text-[10px] font-mono font-bold text-white uppercase tracking-wider">
+                  Events & Culturals
+                </span>
+                <span class="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-cyan-300 flex items-center gap-1">
+                  <i data-lucide="zap" class="w-3 h-3"></i> Reel #4
+                </span>
+              </div>
+
+              <a href="https://www.instagram.com/reel/DbK7PplgcUf/" target="_blank" rel="noopener noreferrer" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-xl shadow-purple-600/50 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                  <i data-lucide="play" class="w-6 h-6 fill-white ml-0.5"></i>
+                </div>
+              </a>
+
+              <div class="absolute bottom-0 left-0 right-0 p-4 space-y-2">
+                <h4 class="font-heading font-bold text-white text-base group-hover:text-purple-300 transition-colors line-clamp-1">
+                  College Fest Stage Hype
+                </h4>
+                <p class="text-xs text-slate-300 line-clamp-2">
+                  Unstoppable energy, explosive flash transitions, and crowd dynamics.
+                </p>
+                <div class="pt-2 flex items-center justify-between">
+                  <a href="https://www.instagram.com/reel/DbK7PplgcUf/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-pink-400 hover:text-pink-300 transition-colors">
+                    <span>Watch on Instagram</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <span class="text-[10px] font-mono text-slate-400">Stage Sync</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel Card 5 -->
+          <div class="reel-card group relative glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-500" data-category="trending">
+            <div class="relative aspect-[9/16] overflow-hidden bg-dark-surface">
+              <img src="thumbnails/reel-5.jpg" alt="Velocity & Transitions" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-base via-dark-base/30 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-cyan-500/80 backdrop-blur-md text-[10px] font-mono font-bold text-white uppercase tracking-wider">
+                  Trending Reels
+                </span>
+                <span class="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-cyan-300 flex items-center gap-1">
+                  <i data-lucide="zap" class="w-3 h-3"></i> Reel #5
+                </span>
+              </div>
+
+              <a href="https://www.instagram.com/reel/DZccrPuJ0JR/" target="_blank" rel="noopener noreferrer" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-xl shadow-purple-600/50 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                  <i data-lucide="play" class="w-6 h-6 fill-white ml-0.5"></i>
+                </div>
+              </a>
+
+              <div class="absolute bottom-0 left-0 right-0 p-4 space-y-2">
+                <h4 class="font-heading font-bold text-white text-base group-hover:text-cyan-300 transition-colors line-clamp-1">
+                  Velocity & Speed Ramp FX
+                </h4>
+                <p class="text-xs text-slate-300 line-clamp-2">
+                  Seamless optical speed ramps and kinetic audio impacts.
+                </p>
+                <div class="pt-2 flex items-center justify-between">
+                  <a href="https://www.instagram.com/reel/DZccrPuJ0JR/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-pink-400 hover:text-pink-300 transition-colors">
+                    <span>Watch on Instagram</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <span class="text-[10px] font-mono text-slate-400">Velocity Pro</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel Card 6 -->
+          <div class="reel-card group relative glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-500" data-category="trending">
+            <div class="relative aspect-[9/16] overflow-hidden bg-dark-surface">
+              <img src="thumbnails/reel-6.jpg" alt="VFX & Motion Edit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-base via-dark-base/30 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-pink-500/80 backdrop-blur-md text-[10px] font-mono font-bold text-white uppercase tracking-wider">
+                  Trending Reels
+                </span>
+                <span class="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-cyan-300 flex items-center gap-1">
+                  <i data-lucide="zap" class="w-3 h-3"></i> Reel #6
+                </span>
+              </div>
+
+              <a href="https://www.instagram.com/reel/Dcf35aykiNA/" target="_blank" rel="noopener noreferrer" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-xl shadow-purple-600/50 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                  <i data-lucide="play" class="w-6 h-6 fill-white ml-0.5"></i>
+                </div>
+              </a>
+
+              <div class="absolute bottom-0 left-0 right-0 p-4 space-y-2">
+                <h4 class="font-heading font-bold text-white text-base group-hover:text-pink-300 transition-colors line-clamp-1">
+                  VFX & Motion Edit
+                </h4>
+                <p class="text-xs text-slate-300 line-clamp-2">
+                  Layered 3D camera effects, light leaks, and kinetic masking.
+                </p>
+                <div class="pt-2 flex items-center justify-between">
+                  <a href="https://www.instagram.com/reel/Dcf35aykiNA/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-pink-400 hover:text-pink-300 transition-colors">
+                    <span>Watch on Instagram</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <span class="text-[10px] font-mono text-slate-400">After Effects</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel Card 7 -->
+          <div class="reel-card group relative glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-500" data-category="trending">
+            <div class="relative aspect-[9/16] overflow-hidden bg-dark-surface">
+              <img src="thumbnails/reel-7.jpg" alt="Instagram Viral Edit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-base via-dark-base/30 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-cyan-500/80 backdrop-blur-md text-[10px] font-mono font-bold text-white uppercase tracking-wider">
+                  Trending Reels
+                </span>
+                <span class="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-cyan-300 flex items-center gap-1">
+                  <i data-lucide="zap" class="w-3 h-3"></i> Reel #7
+                </span>
+              </div>
+
+              <a href="https://www.instagram.com/reel/DV59TNBkwtO/" target="_blank" rel="noopener noreferrer" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-xl shadow-purple-600/50 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                  <i data-lucide="play" class="w-6 h-6 fill-white ml-0.5"></i>
+                </div>
+              </a>
+
+              <div class="absolute bottom-0 left-0 right-0 p-4 space-y-2">
+                <h4 class="font-heading font-bold text-white text-base group-hover:text-cyan-300 transition-colors line-clamp-1">
+                  Instagram Viral Flow
+                </h4>
+                <p class="text-xs text-slate-300 line-clamp-2">
+                  Hook-centric intro with rapid retention cues for organic explore reach.
+                </p>
+                <div class="pt-2 flex items-center justify-between">
+                  <a href="https://www.instagram.com/reel/DV59TNBkwtO/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-pink-400 hover:text-pink-300 transition-colors">
+                    <span>Watch on Instagram</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <span class="text-[10px] font-mono text-slate-400">Viral Reach</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel Card 8 -->
+          <div class="reel-card group relative glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-500" data-category="cinematic">
+            <div class="relative aspect-[9/16] overflow-hidden bg-dark-surface">
+              <img src="thumbnails/reel-8.jpg" alt="Aesthetic Mood Reel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-base via-dark-base/30 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-indigo-500/80 backdrop-blur-md text-[10px] font-mono font-bold text-white uppercase tracking-wider">
+                  Cinematic & Mood
+                </span>
+                <span class="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-cyan-300 flex items-center gap-1">
+                  <i data-lucide="zap" class="w-3 h-3"></i> Reel #8
+                </span>
+              </div>
+
+              <a href="https://www.instagram.com/reel/DVa28scEvsu/" target="_blank" rel="noopener noreferrer" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-xl shadow-purple-600/50 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                  <i data-lucide="play" class="w-6 h-6 fill-white ml-0.5"></i>
+                </div>
+              </a>
+
+              <div class="absolute bottom-0 left-0 right-0 p-4 space-y-2">
+                <h4 class="font-heading font-bold text-white text-base group-hover:text-indigo-300 transition-colors line-clamp-1">
+                  Aesthetic Moodscape
+                </h4>
+                <p class="text-xs text-slate-300 line-clamp-2">
+                  Minimalist transitions with deep atmospheric synth and color tonality.
+                </p>
+                <div class="pt-2 flex items-center justify-between">
+                  <a href="https://www.instagram.com/reel/DVa28scEvsu/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-pink-400 hover:text-pink-300 transition-colors">
+                    <span>Watch on Instagram</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <span class="text-[10px] font-mono text-slate-400">Aesthetic</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel Card 9 -->
+          <div class="reel-card group relative glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-500" data-category="fitness">
+            <div class="relative aspect-[9/16] overflow-hidden bg-dark-surface">
+              <img src="thumbnails/reel-9.jpg" alt="Fast Paced Beat Cut" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-base via-dark-base/30 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-rose-500/80 backdrop-blur-md text-[10px] font-mono font-bold text-white uppercase tracking-wider">
+                  Fitness & Hype
+                </span>
+                <span class="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-cyan-300 flex items-center gap-1">
+                  <i data-lucide="zap" class="w-3 h-3"></i> Reel #9
+                </span>
+              </div>
+
+              <a href="https://www.instagram.com/reel/DVTex4hDIe3/" target="_blank" rel="noopener noreferrer" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-xl shadow-purple-600/50 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                  <i data-lucide="play" class="w-6 h-6 fill-white ml-0.5"></i>
+                </div>
+              </a>
+
+              <div class="absolute bottom-0 left-0 right-0 p-4 space-y-2">
+                <h4 class="font-heading font-bold text-white text-base group-hover:text-rose-300 transition-colors line-clamp-1">
+                  Rapid BPM Bass Cut
+                </h4>
+                <p class="text-xs text-slate-300 line-clamp-2">
+                  Relentless rhythm, camera shake, and high-tempo hype timing.
+                </p>
+                <div class="pt-2 flex items-center justify-between">
+                  <a href="https://www.instagram.com/reel/DVTex4hDIe3/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-pink-400 hover:text-pink-300 transition-colors">
+                    <span>Watch on Instagram</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <span class="text-[10px] font-mono text-slate-400">High BPM</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel Card 10 -->
+          <div class="reel-card group relative glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-500" data-category="events">
+            <div class="relative aspect-[9/16] overflow-hidden bg-dark-surface">
+              <img src="thumbnails/reel-10.jpg" alt="Cultural Stage Edit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-base via-dark-base/30 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-purple-500/80 backdrop-blur-md text-[10px] font-mono font-bold text-white uppercase tracking-wider">
+                  Events & Culturals
+                </span>
+                <span class="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-cyan-300 flex items-center gap-1">
+                  <i data-lucide="zap" class="w-3 h-3"></i> Reel #10
+                </span>
+              </div>
+
+              <a href="https://www.instagram.com/reel/DbRqAOpzDoL/" target="_blank" rel="noopener noreferrer" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-xl shadow-purple-600/50 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                  <i data-lucide="play" class="w-6 h-6 fill-white ml-0.5"></i>
+                </div>
+              </a>
+
+              <div class="absolute bottom-0 left-0 right-0 p-4 space-y-2">
+                <h4 class="font-heading font-bold text-white text-base group-hover:text-purple-300 transition-colors line-clamp-1">
+                  Culturals Stage Light Sync
+                </h4>
+                <p class="text-xs text-slate-300 line-clamp-2">
+                  Lighting beams synced with synth stabs and dynamic stage cuts.
+                </p>
+                <div class="pt-2 flex items-center justify-between">
+                  <a href="https://www.instagram.com/reel/DbRqAOpzDoL/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-pink-400 hover:text-pink-300 transition-colors">
+                    <span>Watch on Instagram</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <span class="text-[10px] font-mono text-slate-400">Stage Master</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel Card 11 -->
+          <div class="reel-card group relative glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-500" data-category="cinematic">
+            <div class="relative aspect-[9/16] overflow-hidden bg-dark-surface">
+              <img src="thumbnails/reel-11.jpg" alt="Cinematic Color Grade" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-base via-dark-base/30 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-indigo-500/80 backdrop-blur-md text-[10px] font-mono font-bold text-white uppercase tracking-wider">
+                  Cinematic & Mood
+                </span>
+                <span class="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-cyan-300 flex items-center gap-1">
+                  <i data-lucide="zap" class="w-3 h-3"></i> Reel #11
+                </span>
+              </div>
+
+              <a href="https://www.instagram.com/reel/Dbnl4g_TBiJ/" target="_blank" rel="noopener noreferrer" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-xl shadow-purple-600/50 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                  <i data-lucide="play" class="w-6 h-6 fill-white ml-0.5"></i>
+                </div>
+              </a>
+
+              <div class="absolute bottom-0 left-0 right-0 p-4 space-y-2">
+                <h4 class="font-heading font-bold text-white text-base group-hover:text-indigo-300 transition-colors line-clamp-1">
+                  Teal & Orange Cinema Grade
+                </h4>
+                <p class="text-xs text-slate-300 line-clamp-2">
+                  Delicate skin-tones balanced against deep cinematic shadow tones.
+                </p>
+                <div class="pt-2 flex items-center justify-between">
+                  <a href="https://www.instagram.com/reel/Dbnl4g_TBiJ/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-pink-400 hover:text-pink-300 transition-colors">
+                    <span>Watch on Instagram</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <span class="text-[10px] font-mono text-slate-400">Color Scopes</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel Card 12 -->
+          <div class="reel-card group relative glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-500" data-category="cinematic">
+            <div class="relative aspect-[9/16] overflow-hidden bg-dark-surface">
+              <img src="thumbnails/reel-12.jpg" alt="Engagement Highlight" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-base via-dark-base/30 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-pink-500/80 backdrop-blur-md text-[10px] font-mono font-bold text-white uppercase tracking-wider">
+                  Cinematic & Mood
+                </span>
+                <span class="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-cyan-300 flex items-center gap-1">
+                  <i data-lucide="zap" class="w-3 h-3"></i> Reel #12
+                </span>
+              </div>
+
+              <a href="https://www.instagram.com/reel/Db61ehETx9I/" target="_blank" rel="noopener noreferrer" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-xl shadow-purple-600/50 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                  <i data-lucide="play" class="w-6 h-6 fill-white ml-0.5"></i>
+                </div>
+              </a>
+
+              <div class="absolute bottom-0 left-0 right-0 p-4 space-y-2">
+                <h4 class="font-heading font-bold text-white text-base group-hover:text-pink-300 transition-colors line-clamp-1">
+                  Emotional Engagement Highlight
+                </h4>
+                <p class="text-xs text-slate-300 line-clamp-2">
+                  Heartfelt couple moments paired with warm, golden-hour grading.
+                </p>
+                <div class="pt-2 flex items-center justify-between">
+                  <a href="https://www.instagram.com/reel/Db61ehETx9I/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-pink-400 hover:text-pink-300 transition-colors">
+                    <span>Watch on Instagram</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <span class="text-[10px] font-mono text-slate-400">Family Memories</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel Card 13 -->
+          <div class="reel-card group relative glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-500" data-category="fitness">
+            <div class="relative aspect-[9/16] overflow-hidden bg-dark-surface">
+              <img src="thumbnails/reel-13.jpg" alt="Fitness Motivation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-base via-dark-base/30 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-rose-500/80 backdrop-blur-md text-[10px] font-mono font-bold text-white uppercase tracking-wider">
+                  Fitness & Hype
+                </span>
+                <span class="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-cyan-300 flex items-center gap-1">
+                  <i data-lucide="zap" class="w-3 h-3"></i> Reel #13
+                </span>
+              </div>
+
+              <a href="https://www.instagram.com/reel/DMhAddHPxi4/" target="_blank" rel="noopener noreferrer" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-xl shadow-purple-600/50 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                  <i data-lucide="play" class="w-6 h-6 fill-white ml-0.5"></i>
+                </div>
+              </a>
+
+              <div class="absolute bottom-0 left-0 right-0 p-4 space-y-2">
+                <h4 class="font-heading font-bold text-white text-base group-hover:text-rose-300 transition-colors line-clamp-1">
+                  Hardcore Gym Motivation
+                </h4>
+                <p class="text-xs text-slate-300 line-clamp-2">
+                  Iron-pumping intensity, drop sets, and aggressive bass drops.
+                </p>
+                <div class="pt-2 flex items-center justify-between">
+                  <a href="https://www.instagram.com/reel/DMhAddHPxi4/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-pink-400 hover:text-pink-300 transition-colors">
+                    <span>Watch on Instagram</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <span class="text-[10px] font-mono text-slate-400">Workout Promo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel Card 14 -->
+          <div class="reel-card group relative glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-500" data-category="events">
+            <div class="relative aspect-[9/16] overflow-hidden bg-dark-surface">
+              <img src="thumbnails/reel-14.jpg" alt="Birthday Celebration" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-base via-dark-base/30 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-purple-500/80 backdrop-blur-md text-[10px] font-mono font-bold text-white uppercase tracking-wider">
+                  Events & Culturals
+                </span>
+                <span class="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-cyan-300 flex items-center gap-1">
+                  <i data-lucide="zap" class="w-3 h-3"></i> Reel #14
+                </span>
+              </div>
+
+              <a href="https://www.instagram.com/reel/DOqdoc5k9io/" target="_blank" rel="noopener noreferrer" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-xl shadow-purple-600/50 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                  <i data-lucide="play" class="w-6 h-6 fill-white ml-0.5"></i>
+                </div>
+              </a>
+
+              <div class="absolute bottom-0 left-0 right-0 p-4 space-y-2">
+                <h4 class="font-heading font-bold text-white text-base group-hover:text-purple-300 transition-colors line-clamp-1">
+                  Grand Birthday Celebration
+                </h4>
+                <p class="text-xs text-slate-300 line-clamp-2">
+                  Lively laughter, sparkle flares, and joyful family group cuts.
+                </p>
+                <div class="pt-2 flex items-center justify-between">
+                  <a href="https://www.instagram.com/reel/DOqdoc5k9io/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-pink-400 hover:text-pink-300 transition-colors">
+                    <span>Watch on Instagram</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <span class="text-[10px] font-mono text-slate-400">Celebration</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel Card 15 -->
+          <div class="reel-card group relative glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-500" data-category="trending">
+            <div class="relative aspect-[9/16] overflow-hidden bg-dark-surface">
+              <img src="thumbnails/reel-15.jpg" alt="Creative Glitch & Sound FX" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-base via-dark-base/30 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-cyan-500/80 backdrop-blur-md text-[10px] font-mono font-bold text-white uppercase tracking-wider">
+                  Trending Reels
+                </span>
+                <span class="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-cyan-300 flex items-center gap-1">
+                  <i data-lucide="zap" class="w-3 h-3"></i> Reel #15
+                </span>
+              </div>
+
+              <a href="https://www.instagram.com/reel/DNQVHHmvUvx/" target="_blank" rel="noopener noreferrer" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-xl shadow-purple-600/50 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                  <i data-lucide="play" class="w-6 h-6 fill-white ml-0.5"></i>
+                </div>
+              </a>
+
+              <div class="absolute bottom-0 left-0 right-0 p-4 space-y-2">
+                <h4 class="font-heading font-bold text-white text-base group-hover:text-cyan-300 transition-colors line-clamp-1">
+                  Creative Glitch & SFX Layer
+                </h4>
+                <p class="text-xs text-slate-300 line-clamp-2">
+                  RGB displacement, tape stop sounds, and crisp impact transients.
+                </p>
+                <div class="pt-2 flex items-center justify-between">
+                  <a href="https://www.instagram.com/reel/DNQVHHmvUvx/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-pink-400 hover:text-pink-300 transition-colors">
+                    <span>Watch on Instagram</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <span class="text-[10px] font-mono text-slate-400">Audio Sync</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel Card 16 -->
+          <div class="reel-card group relative glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-500" data-category="fitness">
+            <div class="relative aspect-[9/16] overflow-hidden bg-dark-surface">
+              <img src="thumbnails/reel-16.jpg" alt="Mass Trending Reel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-base via-dark-base/30 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-rose-500/80 backdrop-blur-md text-[10px] font-mono font-bold text-white uppercase tracking-wider">
+                  Fitness & Hype
+                </span>
+                <span class="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-cyan-300 flex items-center gap-1">
+                  <i data-lucide="zap" class="w-3 h-3"></i> Reel #16
+                </span>
+              </div>
+
+              <a href="https://www.instagram.com/reel/DVuXTpnE0XC/" target="_blank" rel="noopener noreferrer" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-xl shadow-purple-600/50 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                  <i data-lucide="play" class="w-6 h-6 fill-white ml-0.5"></i>
+                </div>
+              </a>
+
+              <div class="absolute bottom-0 left-0 right-0 p-4 space-y-2">
+                <h4 class="font-heading font-bold text-white text-base group-hover:text-rose-300 transition-colors line-clamp-1">
+                  Mass Trending Hype Cut
+                </h4>
+                <p class="text-xs text-slate-300 line-clamp-2">
+                  Extreme pacing with quick-zoom transitions and punchy visuals.
+                </p>
+                <div class="pt-2 flex items-center justify-between">
+                  <a href="https://www.instagram.com/reel/DVuXTpnE0XC/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-pink-400 hover:text-pink-300 transition-colors">
+                    <span>Watch on Instagram</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <span class="text-[10px] font-mono text-slate-400">Hype Reel</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel Card 17 -->
+          <div class="reel-card group relative glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-500" data-category="cinematic">
+            <div class="relative aspect-[9/16] overflow-hidden bg-dark-surface">
+              <img src="thumbnails/reel-17.jpg" alt="Photo Slideshow Cinematic" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-base via-dark-base/30 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-indigo-500/80 backdrop-blur-md text-[10px] font-mono font-bold text-white uppercase tracking-wider">
+                  Cinematic & Mood
+                </span>
+                <span class="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-cyan-300 flex items-center gap-1">
+                  <i data-lucide="zap" class="w-3 h-3"></i> Reel #17
+                </span>
+              </div>
+
+              <a href="https://www.instagram.com/reel/Da9Yww3vCzB/" target="_blank" rel="noopener noreferrer" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-xl shadow-purple-600/50 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                  <i data-lucide="play" class="w-6 h-6 fill-white ml-0.5"></i>
+                </div>
+              </a>
+
+              <div class="absolute bottom-0 left-0 right-0 p-4 space-y-2">
+                <h4 class="font-heading font-bold text-white text-base group-hover:text-indigo-300 transition-colors line-clamp-1">
+                  Cinematic Photo Montage
+                </h4>
+                <p class="text-xs text-slate-300 line-clamp-2">
+                  Ken Burns parallax zoom effect combined with dreamy film blur.
+                </p>
+                <div class="pt-2 flex items-center justify-between">
+                  <a href="https://www.instagram.com/reel/Da9Yww3vCzB/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-pink-400 hover:text-pink-300 transition-colors">
+                    <span>Watch on Instagram</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <span class="text-[10px] font-mono text-slate-400">Montage FX</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel Card 18 -->
+          <div class="reel-card group relative glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-500" data-category="trending">
+            <div class="relative aspect-[9/16] overflow-hidden bg-dark-surface">
+              <img src="thumbnails/reel-18.jpg" alt="Slowmo & Speedramp" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-base via-dark-base/30 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-cyan-500/80 backdrop-blur-md text-[10px] font-mono font-bold text-white uppercase tracking-wider">
+                  Trending Reels
+                </span>
+                <span class="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-cyan-300 flex items-center gap-1">
+                  <i data-lucide="zap" class="w-3 h-3"></i> Reel #18
+                </span>
+              </div>
+
+              <a href="https://www.instagram.com/reel/DVqi-r5EzHS/" target="_blank" rel="noopener noreferrer" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-xl shadow-purple-600/50 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                  <i data-lucide="play" class="w-6 h-6 fill-white ml-0.5"></i>
+                </div>
+              </a>
+
+              <div class="absolute bottom-0 left-0 right-0 p-4 space-y-2">
+                <h4 class="font-heading font-bold text-white text-base group-hover:text-cyan-300 transition-colors line-clamp-1">
+                  Optical Slowmo & Ramp
+                </h4>
+                <p class="text-xs text-slate-300 line-clamp-2">
+                  Silky smooth frame interpolation and seamless direction flips.
+                </p>
+                <div class="pt-2 flex items-center justify-between">
+                  <a href="https://www.instagram.com/reel/DVqi-r5EzHS/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-pink-400 hover:text-pink-300 transition-colors">
+                    <span>Watch on Instagram</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <span class="text-[10px] font-mono text-slate-400">Speed Warp</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel Card 19 -->
+          <div class="reel-card group relative glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-500" data-category="events">
+            <div class="relative aspect-[9/16] overflow-hidden bg-dark-surface">
+              <img src="thumbnails/reel-19.jpg" alt="Culturals Aftermovie" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-base via-dark-base/30 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-purple-500/80 backdrop-blur-md text-[10px] font-mono font-bold text-white uppercase tracking-wider">
+                  Events & Culturals
+                </span>
+                <span class="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-cyan-300 flex items-center gap-1">
+                  <i data-lucide="zap" class="w-3 h-3"></i> Reel #19
+                </span>
+              </div>
+
+              <a href="https://www.instagram.com/reel/DdBaAVaOWL3/" target="_blank" rel="noopener noreferrer" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-xl shadow-purple-600/50 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                  <i data-lucide="play" class="w-6 h-6 fill-white ml-0.5"></i>
+                </div>
+              </a>
+
+              <div class="absolute bottom-0 left-0 right-0 p-4 space-y-2">
+                <h4 class="font-heading font-bold text-white text-base group-hover:text-purple-300 transition-colors line-clamp-1">
+                  Culturals Mega Reel
+                </h4>
+                <p class="text-xs text-slate-300 line-clamp-2">
+                  Massive campus festival edit showcasing dynamic DJ sets and lights.
+                </p>
+                <div class="pt-2 flex items-center justify-between">
+                  <a href="https://www.instagram.com/reel/DdBaAVaOWL3/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-pink-400 hover:text-pink-300 transition-colors">
+                    <span>Watch on Instagram</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <span class="text-[10px] font-mono text-slate-400">Festival Edit</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel Card 20 -->
+          <div class="reel-card group relative glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-500" data-category="cinematic">
+            <div class="relative aspect-[9/16] overflow-hidden bg-dark-surface">
+              <img src="thumbnails/reel-20.jpg" alt="Dynamic Visual Story" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-base via-dark-base/30 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-indigo-500/80 backdrop-blur-md text-[10px] font-mono font-bold text-white uppercase tracking-wider">
+                  Cinematic & Mood
+                </span>
+                <span class="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-cyan-300 flex items-center gap-1">
+                  <i data-lucide="zap" class="w-3 h-3"></i> Reel #20
+                </span>
+              </div>
+
+              <a href="https://www.instagram.com/reel/DXzh4GYzgP1/" target="_blank" rel="noopener noreferrer" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-xl shadow-purple-600/50 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                  <i data-lucide="play" class="w-6 h-6 fill-white ml-0.5"></i>
+                </div>
+              </a>
+
+              <div class="absolute bottom-0 left-0 right-0 p-4 space-y-2">
+                <h4 class="font-heading font-bold text-white text-base group-hover:text-indigo-300 transition-colors line-clamp-1">
+                  Dynamic Visual Story
+                </h4>
+                <p class="text-xs text-slate-300 line-clamp-2">
+                  Deep mood narrative structure with crisp sound design layers.
+                </p>
+                <div class="pt-2 flex items-center justify-between">
+                  <a href="https://www.instagram.com/reel/DXzh4GYzgP1/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-pink-400 hover:text-pink-300 transition-colors">
+                    <span>Watch on Instagram</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <span class="text-[10px] font-mono text-slate-400">Storytelling</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel Card 21 -->
+          <div class="reel-card group relative glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-500" data-category="events">
+            <div class="relative aspect-[9/16] overflow-hidden bg-dark-surface">
+              <img src="thumbnails/reel-1.jpg" alt="Special Cut" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-base via-dark-base/30 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-purple-500/80 backdrop-blur-md text-[10px] font-mono font-bold text-white uppercase tracking-wider">
+                  Events & Culturals
+                </span>
+                <span class="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-cyan-300 flex items-center gap-1">
+                  <i data-lucide="zap" class="w-3 h-3"></i> Reel #21
+                </span>
+              </div>
+
+              <a href="https://www.instagram.com/reel/DdB1r_Moo3X/" target="_blank" rel="noopener noreferrer" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-xl shadow-purple-600/50 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                  <i data-lucide="play" class="w-6 h-6 fill-white ml-0.5"></i>
+                </div>
+              </a>
+
+              <div class="absolute bottom-0 left-0 right-0 p-4 space-y-2">
+                <h4 class="font-heading font-bold text-white text-base group-hover:text-purple-300 transition-colors line-clamp-1">
+                  Director's Special Cut
+                </h4>
+                <p class="text-xs text-slate-300 line-clamp-2">
+                  Custom speed ramps, audio stems remix, and cinematic festival finale.
+                </p>
+                <div class="pt-2 flex items-center justify-between">
+                  <a href="https://www.instagram.com/reel/DdB1r_Moo3X/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-pink-400 hover:text-pink-300 transition-colors">
+                    <span>Watch on Instagram</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <span class="text-[10px] font-mono text-slate-400">Director Cut</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Instagram Profile Link Banner -->
+        <div class="mt-16 p-8 rounded-3xl glass-card border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6 bg-gradient-to-r from-purple-950/20 via-pink-950/10 to-transparent">
+          <div class="flex items-center gap-4 text-left">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-600 to-pink-500 p-[2px] shadow-lg shadow-pink-500/20 flex-shrink-0">
+              <img src="assets/balaji-avatar.jpg" alt="Balaji" class="w-full h-full rounded-2xl object-cover" onerror="this.onerror=null; this.src='assets/balaji-portrait.jpg';" />
+            </div>
+            <div>
+              <h4 class="font-heading font-bold text-lg text-white">Want to explore even more reels & stories?</h4>
+              <p class="text-xs sm:text-sm text-slate-400">Follow my daily creative edits and BTS on Instagram <span class="text-pink-400 font-semibold">@bala_xji</span></p>
+            </div>
+          </div>
+          <a href="https://www.instagram.com/bala_xji?stkn=MW83aWVtYnA3czVkeQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-xl bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-heading text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-lg shadow-pink-600/20 flex-shrink-0">
+            <i data-lucide="instagram" class="w-4 h-4"></i>
+            <span>Visit @bala_xji on Instagram</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. WORKFLOW / EDITING PROCESS SECTION -->
+    <section id="workflow" class="py-24 px-4 sm:px-6 lg:px-8 relative border-t border-white/[0.04] bg-dark-card/20">
+      <div class="max-w-7xl mx-auto">
+        
+        <!-- Section Header -->
+        <div class="flex flex-col items-center text-center space-y-4 mb-16">
+          <span class="px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono uppercase tracking-widest">
+            04 // Execution Pipeline
+          </span>
+          <h2 class="font-heading font-black text-3xl sm:text-5xl text-white tracking-tight">
+            The 4-Step <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-purple-400">Editing Process</span>
+          </h2>
+          <p class="text-slate-400 max-w-2xl text-base sm:text-lg">
+            How I transform disorganized raw clips into polished, viral-ready masterworks.
+          </p>
+        </div>
+
+        <!-- 4 Step Pipeline Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+          
+          <!-- Step 1 -->
+          <div class="glass-card rounded-2xl p-6 border border-white/10 hover:border-emerald-500/40 transition-all duration-300 relative group">
+            <div class="font-mono text-3xl font-extrabold text-emerald-400/40 mb-4 group-hover:text-emerald-400 transition-colors">
+              01
+            </div>
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mb-4">
+              <i data-lucide="folder-search" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-heading font-bold text-lg text-white mb-2">Raw Ingest & Storyboard</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Carefully organizing camera rushes, selecting hero frames, marking audio beats, and drafting the visual narrative roadmap.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="glass-card rounded-2xl p-6 border border-white/10 hover:border-cyan-500/40 transition-all duration-300 relative group">
+            <div class="font-mono text-3xl font-extrabold text-cyan-400/40 mb-4 group-hover:text-cyan-400 transition-colors">
+              02
+            </div>
+            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center mb-4">
+              <i data-lucide="scissors" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-heading font-bold text-lg text-white mb-2">Rough Cut & Beat Sync</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Surgically timing every transition to musical transients, rhythm drops, and vocal markers for an irresistible viewing flow.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="glass-card rounded-2xl p-6 border border-white/10 hover:border-purple-500/40 transition-all duration-300 relative group">
+            <div class="font-mono text-3xl font-extrabold text-purple-400/40 mb-4 group-hover:text-purple-400 transition-colors">
+              03
+            </div>
+            <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-400 flex items-center justify-center mb-4">
+              <i data-lucide="wand-2" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-heading font-bold text-lg text-white mb-2">VFX, Motion & Color</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Injecting kinetic typography, custom speed ramps, light sweeps, motion graphics, and rich cinematic color grades.
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="glass-card rounded-2xl p-6 border border-white/10 hover:border-pink-500/40 transition-all duration-300 relative group">
+            <div class="font-mono text-3xl font-extrabold text-pink-400/40 mb-4 group-hover:text-pink-400 transition-colors">
+              04
+            </div>
+            <div class="w-10 h-10 rounded-xl bg-pink-500/10 border border-pink-500/30 text-pink-400 flex items-center justify-center mb-4">
+              <i data-lucide="check-check" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-heading font-bold text-lg text-white mb-2">Sound Design & Master</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Layering sub-bass hits, whooshes, risers, dialogue clarity processing, and exporting crisp 4K/60FPS masters for immediate posting.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. ACHIEVEMENTS & CERTIFICATE BANNER -->
+    <section id="achievements" class="py-20 px-4 sm:px-6 lg:px-8 relative border-t border-white/[0.04]">
+      <div class="max-w-7xl mx-auto">
+        <div class="relative rounded-3xl overflow-hidden glass-card border border-amber-500/30 bg-gradient-to-r from-amber-950/30 via-purple-950/20 to-dark-base p-8 sm:p-12 shadow-2xl">
+          
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <div class="lg:col-span-8 space-y-4 text-left">
+              <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-mono font-bold tracking-wide">
+                <span>🏆 COMPETITIVE EXCELLENCE</span>
+              </div>
+              <h2 class="font-heading font-black text-3xl sm:text-4xl text-white">
+                2nd Prize Winner – SMVEC College Culturals Video Editing Competition
+              </h2>
+              <p class="text-slate-300 text-base leading-relaxed">
+                Awarded for rapid turn-around video assembly, superior storyline engagement, beat-synced pacing, and cinematic crowd excitement during the prestigious SMVEC inter-college cultural festival.
+              </p>
+              <div class="flex flex-wrap gap-4 pt-2 text-xs font-mono text-slate-300">
+                <span class="flex items-center gap-1.5"><i data-lucide="award" class="w-4 h-4 text-amber-400"></i> Peer Recognized</span>
+                <span class="flex items-center gap-1.5"><i data-lucide="timer" class="w-4 h-4 text-amber-400"></i> High-Speed Turnaround</span>
+                <span class="flex items-center gap-1.5"><i data-lucide="film" class="w-4 h-4 text-amber-400"></i> Festival Grand Stage</span>
+              </div>
+            </div>
+
+            <div class="lg:col-span-4 flex justify-center">
+              <div class="relative w-48 h-48 rounded-full bg-gradient-to-tr from-amber-500 via-purple-600 to-cyan-500 p-1 shadow-[0_0_50px_rgba(245,158,11,0.25)] flex items-center justify-center">
+                <div class="w-full h-full bg-dark-base rounded-full flex flex-col items-center justify-center text-center p-4">
+                  <span class="text-4xl mb-1">🏆</span>
+                  <span class="font-heading font-black text-xl text-white">2nd PRIZE</span>
+                  <span class="text-[10px] font-mono text-amber-300 uppercase tracking-widest mt-1">SMVEC Culturals</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. CONTACT & FOOTER SECTION -->
+    <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 relative border-t border-white/[0.04] bg-dark-base">
+      <div class="max-w-7xl mx-auto">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          <!-- Contact Details (5 cols) -->
+          <div class="lg:col-span-5 space-y-6">
+            <span class="px-3.5 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-mono uppercase tracking-widest">
+              05 // Let's Collaborate
+            </span>
+            <h2 class="font-heading font-black text-3xl sm:text-5xl text-white leading-tight">
+              Ready to elevate your <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400">video content?</span>
+            </h2>
+            <p class="text-slate-400 text-base leading-relaxed">
+              Whether you need daily trending Instagram Reels, an epic college aftermovie, or high-converting promotional edits — let's turn your vision into compelling visuals.
+            </p>
+
+            <div class="space-y-4 pt-4">
+              <!-- WhatsApp Card -->
+              <a href="https://wa.me/919840602461?text=Hi%20Balaji,%20I%20want%20to%20hire%20you%20for%20a%20video%20edit!" target="_blank" rel="noopener noreferrer" class="glass-card rounded-2xl p-4 border border-white/10 hover:border-emerald-500/50 flex items-center gap-4 group transition-all">
+                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <i data-lucide="message-circle" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <span class="text-xs font-mono text-slate-400 block">Direct WhatsApp</span>
+                  <span class="font-heading font-bold text-white text-base group-hover:text-emerald-300 transition-colors">+91 9840602461</span>
+                </div>
+              </a>
+
+              <!-- Email Card -->
+              <div class="glass-card rounded-2xl p-4 border border-white/10 hover:border-cyan-500/50 flex items-center justify-between group transition-all">
+                <a href="mailto:balajilatha406@gmail.com" class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center group-hover:scale-105 transition-transform">
+                    <i data-lucide="mail" class="w-6 h-6"></i>
+                  </div>
+                  <div>
+                    <span class="text-xs font-mono text-slate-400 block">Email Inquiries</span>
+                    <span class="font-heading font-bold text-white text-base group-hover:text-cyan-300 transition-colors">balajilatha406@gmail.com</span>
+                  </div>
+                </a>
+                <button onclick="navigator.clipboard.writeText('balajilatha406@gmail.com'); alert('Email copied to clipboard!');" class="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors" title="Copy Email">
+                  <i data-lucide="copy" class="w-4 h-4"></i>
+                </button>
+              </div>
+
+              <!-- Instagram Card -->
+              <a href="https://www.instagram.com/bala_xji?stkn=MW83aWVtYnA3czVkeQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="glass-card rounded-2xl p-4 border border-white/10 hover:border-pink-500/50 flex items-center gap-4 group transition-all">
+                <div class="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/30 text-pink-400 flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <i data-lucide="instagram" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <span class="text-xs font-mono text-slate-400 block">Instagram DM</span>
+                  <span class="font-heading font-bold text-white text-base group-hover:text-pink-300 transition-colors">@bala_xji</span>
+                </div>
+              </a>
+
+              <!-- Location Info -->
+              <div class="glass-card rounded-2xl p-4 border border-white/10 flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-400 flex items-center justify-center">
+                  <i data-lucide="map-pin" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <span class="text-xs font-mono text-slate-400 block">Location</span>
+                  <span class="font-heading font-semibold text-white text-sm">Puducherry, Thiruvandarkoil, India (Remote Worldwide)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick WhatsApp Interactive Message Composer (7 cols) -->
+          <div class="lg:col-span-7">
+            <div class="glass-card rounded-3xl p-6 sm:p-8 border border-white/10 relative">
+              <h3 class="font-heading font-bold text-xl text-white mb-2 flex items-center gap-2">
+                <i data-lucide="send" class="w-5 h-5 text-purple-400"></i> Fast Project Inquiry
+              </h3>
+              <p class="text-xs text-slate-400 mb-6 font-mono">
+                Fill the details below to generate a pre-formatted WhatsApp chat request directly to Balaji.
+              </p>
+
+              <form id="contact-form" class="space-y-4" onsubmit="event.preventDefault(); sendWhatsAppMessage();">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs font-mono uppercase text-slate-400 mb-2">Your Name</label>
+                    <input type="text" id="sender-name" required placeholder="John Doe / Brand" class="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 text-sm font-body transition-colors" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-mono uppercase text-slate-400 mb-2">Project Type</label>
+                    <select id="project-type" class="w-full px-4 py-3 rounded-xl bg-dark-card border border-white/10 text-white focus:outline-none focus:border-purple-500 text-sm font-body transition-colors">
+                      <option value="Instagram Reels & Shorts">Instagram Reels & Shorts</option>
+                      <option value="College / Cultural Aftermovie">College / Cultural Aftermovie</option>
+                      <option value="Cinematic Engagement / Birthday">Cinematic Engagement / Birthday</option>
+                      <option value="Gym / Fitness Motivation Edit">Gym / Fitness Motivation Edit</option>
+                      <option value="Color Grading & SFX Mastering">Color Grading & SFX Mastering</option>
+                      <option value="Other Video Editing">Other Video Editing</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-mono uppercase text-slate-400 mb-2">Project Brief / Requirements</label>
+                  <textarea id="sender-message" rows="4" required placeholder="Tell me about the footage length, desired music style, deadline, and reference reels..." class="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 text-sm font-body transition-colors"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 hover:from-emerald-500 hover:to-cyan-500 text-white font-heading font-bold text-sm tracking-wide shadow-lg shadow-emerald-600/30 hover:shadow-cyan-500/30 transition-all flex items-center justify-center gap-2">
+                  <i data-lucide="message-circle" class="w-5 h-5"></i>
+                  <span>Send Direct WhatsApp Message</span>
+                </button>
+              </form>
+
+              <div class="mt-4 text-center">
+                <span class="text-[11px] font-mono text-slate-500">
+                  Instant Response Guaranteed // Typically responds within 30 minutes
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Footer Bar -->
+        <div class="mt-20 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500">
+          <div>
+            © 2026 <strong class="text-white">BALAJI .B</strong>. All Rights Reserved. Crafted for Creators & Brands.
+          </div>
+          <div class="flex items-center gap-6">
+            <a href="#hero" class="hover:text-purple-400 transition-colors">Back to Top ↑</a>
+            <a href="https://www.instagram.com/bala_xji?stkn=MW83aWVtYnA3czVkeQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="hover:text-pink-400 transition-colors">Instagram</a>
+            <a href="https://wa.me/919840602461" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors">WhatsApp</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Sticky Floating WhatsApp Bubble (Bottom Right) -->
+  <aside aria-label="Floating Contact" class="fixed bottom-6 right-6 z-40">
+    <a href="https://wa.me/919840602461?text=Hi%20Balaji,%20I%20want%20to%20hire%20you%20for%20a%20video%20edit!" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3.5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white shadow-2xl shadow-emerald-500/40 hover:scale-110 active:scale-95 transition-all group">
+      <i data-lucide="message-circle" class="w-6 h-6"></i>
+      <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 font-heading text-xs font-bold tracking-wide pr-1">
+        Chat with Balaji
+      </span>
+    </a>
+  </aside>
+
+  <!-- Scripts -->
+  <script>
+    // 1. Initialize Lucide Icons
+    lucide.createIcons();
+
+    // 2. Initialize Lenis Smooth Scroll & Sync with GSAP ScrollTrigger
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      touchMultiplier: 1.5,
+    });
+
+    lenis.on('scroll', ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
+
+    // 3. Initialize Typed.js in Hero
+    new Typed('#typed-text', {
+      strings: [
+        'Beat-Synced Reels.',
+        'Cinematic Aftermovies.',
+        'Viral Trending Edits.',
+        'Motion Graphics.'
+      ],
+      typeSpeed: 60,
+      backSpeed: 40,
+      backDelay: 1800,
+      loop: true,
+      cursorChar: '▋'
+    });
+
+    // 4. Custom Cursor Follower Effect (Desktop only)
+    const cursor = document.getElementById('cursor');
+    const follower = document.getElementById('cursor-follower');
+
+    if (window.matchMedia('(pointer: fine)').matches && cursor && follower) {
+      let mouseX = window.innerWidth / 2;
+      let mouseY = window.innerHeight / 2;
+      let followerX = mouseX;
+      let followerY = mouseY;
+
+      window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        cursor.style.left = `${mouseX}px`;
+        cursor.style.top = `${mouseY}px`;
+      });
+
+      const renderFollower = () => {
+        followerX += (mouseX - followerX) * 0.18;
+        followerY += (mouseY - followerY) * 0.18;
+        follower.style.left = `${followerX}px`;
+        follower.style.top = `${followerY}px`;
+        requestAnimationFrame(renderFollower);
+      };
+      requestAnimationFrame(renderFollower);
+
+      // Active state on interactable elements
+      const interactiveEls = document.querySelectorAll('a, button, input, select, textarea, .reel-card');
+      interactiveEls.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          cursor.classList.add('active');
+          follower.classList.add('active');
+        });
+        el.addEventListener('mouseleave', () => {
+          cursor.classList.remove('active');
+          follower.classList.remove('active');
+        });
+      });
+    }
+
+    // 5. Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuBtn?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // 6. Project Filter Tabs
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.reel-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('active', 'bg-purple-600', 'text-white', 'shadow-lg', 'shadow-purple-600/30');
+          b.classList.add('bg-white/5', 'text-slate-300');
+        });
+
+        btn.classList.add('active', 'bg-purple-600', 'text-white', 'shadow-lg', 'shadow-purple-600/30');
+        btn.classList.remove('bg-white/5', 'text-slate-300');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        projectCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filterValue === 'all' || category === filterValue) {
+            card.style.display = 'block';
+            gsap.fromTo(card, { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.4 });
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        // Trigger Lucide refresh
+        lucide.createIcons();
+      });
+    });
+
+    // 7. Interactive Before/After Color Grading Slider
+    const gradeContainer = document.getElementById('grade-slider-container');
+    const gradeClip = document.getElementById('grade-slider-clip');
+    const gradeHandle = document.getElementById('grade-slider-handle');
+    const gradeBeforeImg = document.getElementById('grade-slider-before-img');
+
+    if (gradeContainer && gradeClip && gradeHandle && gradeBeforeImg) {
+      let isDragging = false;
+
+      const updateSlider = (clientX) => {
+        const rect = gradeContainer.getBoundingClientRect();
+        let offsetX = clientX - rect.left;
+        if (offsetX < 0) offsetX = 0;
+        if (offsetX > rect.width) offsetX = rect.width;
+        const percent = (offsetX / rect.width) * 100;
+
+        gradeClip.style.width = `${percent}%`;
+        gradeHandle.style.left = `${percent}%`;
+        gradeBeforeImg.style.width = `${rect.width}px`;
+      };
+
+      const setContainerWidth = () => {
+        if (gradeContainer && gradeBeforeImg) {
+          gradeBeforeImg.style.width = `${gradeContainer.offsetWidth}px`;
+        }
+      };
+      window.addEventListener('resize', setContainerWidth);
+      setContainerWidth();
+
+      gradeContainer.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        updateSlider(e.clientX);
+      });
+      window.addEventListener('mouseup', () => isDragging = false);
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        updateSlider(e.clientX);
+      });
+
+      // Touch events for mobile
+      gradeContainer.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        updateSlider(e.touches[0].clientX);
+      });
+      window.addEventListener('touchend', () => isDragging = false);
+      window.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        updateSlider(e.touches[0].clientX);
+      });
+    }
+
+    // 8. Contact Form WhatsApp Message Generator
+    function sendWhatsAppMessage() {
+      const name = document.getElementById('sender-name').value.trim();
+      const projectType = document.getElementById('project-type').value;
+      const message = document.getElementById('sender-message').value.trim();
+
+      const text = `Hi Balaji,\n\nMy name is *${name}*.\nI am interested in: *${projectType}*.\n\nProject Brief:\n"${message}"\n\nLet's connect and discuss the edit!`;
+      const encodedUrl = `https://wa.me/919840602461?text=${encodeURIComponent(text)}`;
+      window.open(encodedUrl, '_blank');
+    }
+
+    // 9. GSAP Cinematic Scroll Reveals
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.utils.toArray('.glass-card').forEach((card) => {
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 88%',
+          toggleActions: 'play none none none'
+        },
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+      });
+    });
+  </script>
+</body>
 </html>
