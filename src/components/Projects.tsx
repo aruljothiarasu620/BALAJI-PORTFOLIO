@@ -191,26 +191,27 @@ export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
 
                     {/* Action buttons */}
                     <div className="flex items-center gap-1.5 sm:gap-2 pt-0.5">
-                      <button
-                        onClick={() => {
-                          playClick();
-                          onSelectProject(project);
-                        }}
-                        className="flex-1 py-1.5 sm:py-2 rounded-lg sm:rounded-xl bg-white/5 hover:bg-cyan-400 hover:text-black text-white text-[11px] sm:text-xs font-semibold flex items-center justify-center gap-1 transition-all cursor-pointer border border-white/10 hover:border-cyan-400"
-                      >
-                        <span>Details</span>
-                      </button>
-
                       <a
                         href={project.reelUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={playClick}
-                        title="Open on Instagram"
-                        className="p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-white/5 hover:bg-gradient-to-tr hover:from-amber-500 hover:via-rose-500 hover:to-purple-600 hover:text-white text-slate-400 transition-all cursor-pointer border border-white/10"
+                        className="flex-1 py-1.5 sm:py-2 rounded-lg sm:rounded-xl bg-gradient-to-r from-cyan-400 via-cyan-500 to-indigo-500 hover:from-cyan-300 hover:to-indigo-400 text-black text-[11px] sm:text-xs font-bold flex items-center justify-center gap-1 transition-all cursor-pointer shadow-md shadow-cyan-500/20"
                       >
-                        <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                        <span>Watch Reel</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]" />
                       </a>
+
+                      <button
+                        onClick={() => {
+                          playClick();
+                          onSelectProject(project);
+                        }}
+                        title="View Details"
+                        className="px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-lg sm:rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 text-[11px] sm:text-xs font-semibold flex items-center justify-center gap-1 transition-all cursor-pointer border border-white/10"
+                      >
+                        <span>Details</span>
+                      </button>
                     </div>
                   </div>
                 </div>

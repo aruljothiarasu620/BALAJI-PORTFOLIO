@@ -26,7 +26,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onOpenExportModal }) 
 
   const trustMetrics = [
     { label: "Experience", val: "5+ Years", desc: "Hands-on editing" },
-    { label: "Mastered Reels", val: "20+ Cuts", desc: "High retention" },
+    { label: "Mastered Reels", val: "35+ Cuts", desc: "High retention" },
     { label: "Top Honor", val: "1st Prize", desc: "SMVEC Culturals" },
     { label: "Master Quality", val: "4K 60FPS", desc: "Cinema grade" },
   ];
@@ -207,7 +207,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onOpenExportModal }) 
                   Premiere Pro & After Effects
                 </span>
                 <span className="text-cyan-400 font-medium group-hover:underline cursor-pointer" onClick={onExploreWork}>
-                  Click to View All 20 Reels →
+                  Click to View All 35 Reels →
                 </span>
               </div>
 
